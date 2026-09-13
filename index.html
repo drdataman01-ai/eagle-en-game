@@ -259,7 +259,7 @@ function slugify(name){
   return name.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
-function renderLogin(errorMsg){
+function renderLogin(errorMsg, prefillName, prefillPin){
   topHeader.style.display = 'none';
   pageFooter.style.display = 'none';
   app.innerHTML = `
@@ -269,11 +269,11 @@ function renderLogin(errorMsg){
       <p style="color:#4A6270;font-weight:600;margin-top:-8px;">Use a nickname your teacher will recognize — no email needed.</p>
       <div class="field">
         <label for="nameInput">Reading name</label>
-        <input id="nameInput" type="text" maxlength="24" placeholder="e.g. Sam or SkyHawk7" autocomplete="off">
+        <input id="nameInput" type="text" maxlength="24" placeholder="e.g. Sam or SkyHawk7" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${prefillName ? escapeAttr(prefillName) : ''}">
       </div>
       <div class="field">
         <label for="pinInput">Secret code (6 digits)</label>
-        <input id="pinInput" type="password" inputmode="numeric" maxlength="6" placeholder="••••••" autocomplete="off">
+        <input id="pinInput" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="e.g. 482913" autocomplete="one-time-code" autocapitalize="off" autocorrect="off" spellcheck="false" value="${prefillPin ? escapeAttr(prefillPin) : ''}">
         <div class="hint">Remember this code — you'll use it to log back in next time. Ask a grown-up to help you remember it.</div>
       </div>
       <div class="actions">
@@ -282,8 +282,16 @@ function renderLogin(errorMsg){
       <div class="login-error">${errorMsg ? errorMsg : ''}</div>
     </div>`;
 
+  const pinEl = document.getElementById('pinInput');
+  pinEl.addEventListener('input', () => {
+    pinEl.value = pinEl.value.replace(/\D/g, '').slice(0, 6);
+  });
   document.getElementById('loginBtn').addEventListener('click', handleLogin);
-  document.getElementById('pinInput').addEventListener('keydown', e => { if(e.key === 'Enter') handleLogin(); });
+  pinEl.addEventListener('keydown', e => { if(e.key === 'Enter') handleLogin(); });
+}
+
+function escapeAttr(s){
+  return String(s).replace(/"/g, '&quot;');
 }
 
 function renderLoading(msg){
@@ -296,11 +304,11 @@ async function handleLogin(){
   const slug = slugify(nameRaw);
 
   if(!slug){
-    renderLogin('Please type a reading name using letters or numbers.');
+    renderLogin('Please type a reading name using letters or numbers.', nameRaw, pin);
     return;
   }
   if(!/^\d{6}$/.test(pin)){
-    renderLogin('Your secret code must be exactly 6 digits.');
+    renderLogin('Your secret code must be exactly 6 digits (numbers only). If your browser auto-filled this box, please clear it and type the 6 digits yourself.', nameRaw, '');
     return;
   }
 
@@ -322,14 +330,14 @@ async function handleLogin(){
       try {
         await auth.signInWithEmailAndPassword(email, pin);
       } catch (err2) {
-        renderLogin('That reading name is taken with a different code. Try another name, or double-check your code.');
+        renderLogin('That reading name is taken with a different code. Try another name, or double-check your code.', nameRaw, '');
         return;
       }
     } else if (err.code === 'auth/weak-password') {
-      renderLogin('Please choose a 6-digit code.');
+      renderLogin('Please choose a 6-digit code.', nameRaw, '');
       return;
     } else {
-      renderLogin('Something went wrong logging in. Please try again.');
+      renderLogin('Something went wrong logging in. Please try again.', nameRaw, pin);
       return;
     }
   }
