@@ -1,28 +1,23 @@
-/* ============================================================
-   FIREBASE CONFIG — fill this in with your own project's values.
-   See README.md for step-by-step setup instructions.
-   These values are safe to be public in client-side code; they
-   identify your project, they are not secret keys.
-   ============================================================ */
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAFwnIMs8JDNX6JnoH25CIB_uzKxwRNN_w",
+    authDomain: "eagle-en-game.firebaseapp.com",
+    projectId: "eagle-en-game",
+    storageBucket: "eagle-en-game.firebasestorage.app",
+    messagingSenderId: "964609515170",
+    appId: "1:964609515170:web:83135424315ff9bd7141fb",
+    measurementId: "G-3BYNZNHFT9"
+  };
 
-/* Change this to your own passcode before publishing the site.
-   It gates the teacher dashboard (teacher.html). This is a light
-   deterrent, not real security — see README.md for details. */
-const TEACHER_PASSCODE = "eagle2026";
-
-/* Internal domain used to turn a student's chosen reading name
-   into a Firebase Auth email under the hood. Students never see
-   or type an email address. */
-const AUTH_EMAIL_DOMAIN = "eagle-quest.local";
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>

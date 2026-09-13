@@ -12,37 +12,29 @@
     --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
   }
   *{box-sizing:border-box;}
-  body{
-    margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
-    background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
-    min-height:100vh;padding:24px 16px 60px;
-  }
+  body{margin:0;font-family:'Nunito',sans-serif;color:var(--ink);background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);min-height:100vh;padding:24px 16px 60px;}
   h1,h2{font-family:'Baloo 2',sans-serif;}
   .wrap{max-width:960px;margin:0 auto;}
-  h1{color:#fff;font-size:1.5rem;margin:0 0 18px;}
+  h1{color:#fff;font-size:1.4rem;margin:0 0 18px;}
   .panel{background:var(--cloud);border-radius:20px;padding:24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
-  .login-panel{max-width:380px;margin:80px auto 0;}
+  .login-panel{max-width:380px;margin:70px auto 0;}
   .field{margin-bottom:16px;}
   .field label{display:block;font-weight:800;margin-bottom:6px;color:var(--sky-deep);}
   .field input{width:100%;padding:12px 14px;border-radius:12px;border:2px solid #DCE5E9;font-size:1rem;font-family:'Nunito';}
-  button{
-    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;border:none;border-radius:999px;
-    padding:11px 24px;cursor:pointer;background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
-  }
-  button:hover{transform:translateY(-1px);}
+  button{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;border:none;border-radius:999px;padding:11px 24px;cursor:pointer;background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;}
   button.secondary{background:transparent;color:var(--sky-deep);box-shadow:none;border:2px solid #B9C8CE;}
   .error{color:var(--danger);font-weight:700;margin-top:10px;min-height:1.3em;}
   table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.92rem;}
   th, td{text-align:left;padding:9px 10px;border-bottom:1px solid #E4EBEE;}
-  th{color:var(--sky-deep);font-family:'Baloo 2';font-size:.85rem;position:sticky;top:0;background:var(--cloud);}
+  th{color:var(--sky-deep);font-family:'Baloo 2';font-size:.85rem;}
   th.num, td.num{text-align:center;}
-  .chdot{display:inline-block;width:18px;text-align:center;}
   .chdot.done{color:var(--leaf-teal);font-weight:800;}
   .chdot.todo{color:#C7D2D6;}
   .toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
   .toolbar h2{margin:0;color:var(--sky-deep);}
   .loading{text-align:center;color:#6C808A;font-weight:700;padding:30px 0;}
   .scroll{overflow-x:auto;}
+  .setup-note{font-size:.8rem;color:#6C808A;margin-top:14px;line-height:1.5;}
 </style>
 </head>
 <body>
@@ -58,17 +50,19 @@
 <script>
 const CHAPTER_COUNT = 12;
 const app = document.getElementById('app');
+let allRows = [];
 
 function renderPasscodeGate(errorMsg){
   app.innerHTML = `
     <div class="panel login-panel">
-      <h2 style="color:var(--sky-deep);margin-top:0;">Teacher / Parent Access</h2>
+      <h2 style="color:var(--sky-deep);margin-top:0;">Teacher login</h2>
       <div class="field">
-        <label for="passInput">Passcode</label>
+        <label for="passInput">Teacher passcode (6+ characters)</label>
         <input id="passInput" type="password" autocomplete="off">
       </div>
       <button id="enterBtn">View class scores</button>
       <div class="error">${errorMsg || ''}</div>
+      <p class="setup-note">The first time anyone uses this passcode, it creates the teacher account. After that, the same passcode logs back in. Set/change it in <code>firebase-config.js</code> — see README.md.</p>
     </div>`;
   document.getElementById('enterBtn').addEventListener('click', checkPasscode);
   document.getElementById('passInput').addEventListener('keydown', e => { if(e.key==='Enter') checkPasscode(); });
@@ -76,45 +70,49 @@ function renderPasscodeGate(errorMsg){
 
 async function checkPasscode(){
   const val = document.getElementById('passInput').value;
-  if(val !== TEACHER_PASSCODE){
-    renderPasscodeGate('Incorrect passcode.');
+  if(val.length < 6){
+    renderPasscodeGate('Passcode must be at least 6 characters.');
     return;
   }
-  app.innerHTML = `<div class="loading">Loading class scores…</div>`;
+  app.innerHTML = `<div class="loading">Logging in…</div>`;
   try {
-    await auth.signInAnonymously();
+    try {
+      await auth.signInWithEmailAndPassword(TEACHER_EMAIL, val);
+    } catch (err) {
+      if(err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential' || err.code === 'auth/invalid-login-credentials'){
+        await auth.createUserWithEmailAndPassword(TEACHER_EMAIL, val);
+      } else if (err.code === 'auth/wrong-password') {
+        renderPasscodeGate('Incorrect passcode.');
+        return;
+      } else {
+        throw err;
+      }
+    }
     await loadDashboard();
   } catch (e) {
     console.error(e);
-    app.innerHTML = `<div class="panel"><p>Could not load scores. Check the Firebase setup in firebase-config.js and Firestore rules.</p></div>`;
+    renderPasscodeGate('Could not log in. Check the Firebase setup in firebase-config.js and Firestore rules.');
   }
 }
 
-let allRows = [];
-
 async function loadDashboard(){
+  app.innerHTML = `<div class="loading">Loading class scores…</div>`;
   const snap = await db.collection('scores').get();
   allRows = [];
   snap.forEach(doc => {
     const d = doc.data();
     const chapters = d.chapters || {};
-    const row = {
-      name: d.name || '(unnamed)',
-      totalStars: d.totalStars || 0,
-      totalPoints: d.totalPoints || 0,
-      chapters: []
-    };
+    const row = { name: d.name || '(unnamed)', totalPoints: d.totalPoints || 0, chapters: [] };
     for(let i=1;i<=CHAPTER_COUNT;i++){
       const c = chapters[String(i)];
       row.chapters.push(!!(c && c.answered && c.answered.every(Boolean)));
     }
     allRows.push(row);
   });
-  renderTable();
+  renderTable('points');
 }
 
 function renderTable(sortKey){
-  sortKey = sortKey || 'points';
   const rows = [...allRows];
   if(sortKey === 'name') rows.sort((a,b) => a.name.localeCompare(b.name));
   else rows.sort((a,b) => b.totalPoints - a.totalPoints);
@@ -124,7 +122,7 @@ function renderTable(sortKey){
 
   let bodyRows = rows.map(r => {
     let dots = r.chapters.map(done => `<td class="num"><span class="chdot ${done?'done':'todo'}">${done?'✓':'–'}</span></td>`).join('');
-    return `<tr><td>${escapeHtml(r.name)}</td><td class="num">${r.totalStars}</td><td class="num">${r.totalPoints}</td>${dots}</tr>`;
+    return `<tr><td>${escapeHtml(r.name)}</td><td class="num">${r.totalPoints}</td>${dots}</tr>`;
   }).join('');
 
   app.innerHTML = `
@@ -133,14 +131,15 @@ function renderTable(sortKey){
         <h2>${allRows.length} reader${allRows.length===1?'':'s'}</h2>
         <div style="display:flex;gap:8px;">
           <button class="secondary" id="sortName">Sort by name</button>
-          <button class="secondary" id="sortPoints">Sort by points</button>
+          <button class="secondary" id="sortPoints">Sort by score</button>
           <button id="exportCsv">Download CSV</button>
+          <button class="secondary" id="logoutBtn">Log out</button>
         </div>
       </div>
       <div class="scroll">
         <table>
-          <thead><tr><th>Name</th><th class="num">⭐ Stars</th><th class="num">🏆 Points</th>${chHeaders}</tr></thead>
-          <tbody>${bodyRows || `<tr><td colspan="${3+CHAPTER_COUNT}">No readers yet.</td></tr>`}</tbody>
+          <thead><tr><th>Name</th><th class="num">🏆 Score</th>${chHeaders}</tr></thead>
+          <tbody>${bodyRows || `<tr><td colspan="${2+CHAPTER_COUNT}">No readers yet.</td></tr>`}</tbody>
         </table>
       </div>
     </div>`;
@@ -148,6 +147,7 @@ function renderTable(sortKey){
   document.getElementById('sortName').addEventListener('click', () => renderTable('name'));
   document.getElementById('sortPoints').addEventListener('click', () => renderTable('points'));
   document.getElementById('exportCsv').addEventListener('click', exportCsv);
+  document.getElementById('logoutBtn').addEventListener('click', () => { auth.signOut(); renderPasscodeGate(); });
 }
 
 function escapeHtml(s){
@@ -155,11 +155,11 @@ function escapeHtml(s){
 }
 
 function exportCsv(){
-  let header = ['Name','Total Stars','Total Points'];
+  let header = ['Name','Total Score'];
   for(let i=1;i<=CHAPTER_COUNT;i++) header.push(`Chapter ${i} Done`);
   const lines = [header.join(',')];
   allRows.forEach(r => {
-    const line = [r.name, r.totalStars, r.totalPoints, ...r.chapters.map(d => d ? 'yes' : 'no')];
+    const line = [r.name, r.totalPoints, ...r.chapters.map(d => d ? 'yes' : 'no')];
     lines.push(line.map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
   });
   const blob = new Blob([lines.join('\n')], {type:'text/csv'});

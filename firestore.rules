@@ -3,12 +3,15 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // Each student's score document lives at /scores/{their auth uid}.
-    // Any signed-in user (a logged-in student, or the teacher dashboard's
-    // anonymous session) can READ every score doc — that's what lets
-    // teacher.html show the whole class. A student can only WRITE their
-    // own document, so they can't edit anyone else's score.
+    // A student can read and write ONLY their own document — they
+    // cannot see anyone else's score. The one exception is the fixed
+    // teacher account (see TEACHER_EMAIL in firebase-config.js), which
+    // can read every document so teacher.html can show the whole class.
+    // Nobody except that exact account can read someone else's score.
     match /scores/{userId} {
-      allow read: if request.auth != null;
+      allow read: if request.auth != null &&
+                     (request.auth.uid == userId ||
+                      request.auth.token.email == "teacher@eagle-quest-admin.local");
       allow write: if request.auth != null && request.auth.uid == userId;
     }
   }
