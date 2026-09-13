@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Throne in Heaven — Chapter 12 of 12 — The Eyes of the Eagle</title>
+<meta name="description" content="An illustrated retelling of the life of Jesus, seen through the eyes of a bald eagle over Galilee — by Chris Kuo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-deep:#1B4B66; --sky-bright:#3E86A0; --sun-gold:#F2A93B;
+  --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
+  background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;}
+a{color:inherit;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;margin-bottom:18px;flex-wrap:wrap;gap:10px;
+}
+header.site a.brand{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;text-decoration:none;color:#fff;}
+header.site nav a{
+  color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+  background:rgba(10,30,40,.28);border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 16px;margin-left:8px;display:inline-block;
+}
+header.site nav a.quiz{background:var(--sun-gold);color:#4A2E00;border:none;}
+
+.panel{background:var(--cloud);border-radius:24px;padding:28px 26px 24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
+.panel + .panel{margin-top:18px;}
+.eyebrow{font-weight:800;color:var(--leaf-teal);font-size:.78rem;letter-spacing:.4px;margin:0 0 6px;}
+
+/* hero (landing page only) */
+.hero{text-align:center;color:#fff;padding:30px 10px 10px;}
+.hero .by{font-weight:700;opacity:.85;font-size:.9rem;}
+.hero h1{font-size:2.1rem;margin:6px 0 4px;}
+.hero h1 em{font-style:italic;}
+.hero .subtitle{font-size:1.2rem;font-weight:700;opacity:.95;margin:0 0 18px;}
+.hero p.lede{max-width:56ch;margin:0 auto 22px;line-height:1.7;font-weight:600;opacity:.95;}
+.hero .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px;}
+.toc-card{
+  display:block;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;
+  border:1px solid #E4EBEE;color:var(--ink);
+}
+.toc-card:hover{border-color:var(--sky-bright);}
+.toc-card .n{font-family:'Baloo 2';color:var(--sky-deep);font-weight:700;font-size:.85rem;}
+.toc-card .t{font-weight:800;margin-top:2px;}
+
+button, a.btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:999px;padding:12px 26px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
+  text-decoration:none;display:inline-block;
+}
+a.btn.secondary{background:transparent;color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.7);}
+
+/* chapter reading page */
+.chapter-text{font-size:1.08rem;line-height:1.75;}
+.chapter-text p{margin:0 0 14px;}
+.chapter-text p:last-child{margin-bottom:0;}
+.chapter-text img.chapter-illustration{width:100%;height:auto;border-radius:12px;margin:16px 0;border:1px solid #E4EBEE;display:block;}
+.chapter-text hr.scene-break{border:none;text-align:center;margin:22px 0;height:1.2em;color:var(--sky-bright);font-size:1.1rem;letter-spacing:10px;}
+.chapter-text hr.scene-break::before{content:"\2022 \2022 \2022";}
+.chapter-text blockquote{margin:16px 8px;padding:12px 18px;border-left:4px solid var(--sun-gold);background:#FCF6E8;border-radius:0 10px 10px 0;font-style:italic;font-weight:700;color:#5C4419;}
+
+.chapternav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.chapternav a{
+  flex:1;min-width:140px;text-decoration:none;background:#fff;border:1px solid #E4EBEE;
+  border-radius:14px;padding:12px 16px;color:var(--ink);
+}
+.chapternav a:hover{border-color:var(--sky-bright);}
+.chapternav .dir{font-size:.75rem;font-weight:800;color:var(--leaf-teal);}
+.chapternav .lbl{font-weight:800;}
+.chapternav a.next{text-align:right;}
+
+.quiz-cta{
+  margin-top:20px;background:linear-gradient(180deg,#FFF6E4,#FCEFD6);
+  border:2px solid var(--sun-gold);border-radius:18px;padding:20px 22px;text-align:center;
+}
+.quiz-cta h3{margin:0 0 6px;color:#7A4A0A;}
+.quiz-cta p{margin:0 0 14px;font-weight:700;color:#8A5B18;}
+
+footer.note{text-align:center;color:#E7F1F5;font-size:.78rem;margin-top:26px;line-height:1.6;}
+footer.note a{color:#fff;font-weight:700;}
+
+@media (max-width:480px){
+  header.site{flex-direction:column;align-items:flex-start;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="../index.html">🦅 The Eyes of the Eagle</a>
+  <nav>
+    <a href="../index.html">Read the Book</a>
+    <a class="quiz" href="../quiz.html">🎮 Reading Quest Game</a>
+  </nav>
+</header>
+
+<div class="panel">
+  <p class="eyebrow">CHAPTER 12 OF 12</p>
+  <h1 style="margin:0 0 16px;color:var(--sky-deep);">The Throne in Heaven</h1>
+  <div class="chapter-text">
+    <img class="chapter-illustration" src="../images/ch12/ch12_fig1.jpg" alt="Illustration for Chapter 12" loading="lazy">
+<p>Shrubs growing from the cracks in the cliffs clothed the mountainside in everlasting green. The setting sun painted the sheer rock faces with shades of orange and gold.</p>
+<p>Today, I circled high above the cliffs. Many young eagles were practicing their dives and learning how to catch fish.</p>
+<p>They reminded me of myself. I remembered how my golden eagle teacher had trained me when I was young.</p>
+<p>A young eagle came to rest beside me. It had been trying all day. I talked with it and taught it to watch carefully where the fish were swimming, to wait for the right moment, and then to dive from high above and seize the fish. At first, it was reluctant. But it still tried the way I had taught it.</p>
+<p>Later, it caught a fish. The success filled it with joy.</p>
+<p>Then I continued teaching it about spiritual vision.</p>
+<p>“When you look at the world, first look up at the sun. Follow the light as you look at everything before you. Do not look only at what your eyes can see. Learn also to discern the good and the evil that the light reveals.”</p>
+<p>I spoke at length because these were things I had learned myself.</p>
+<p>The young eagle listened, and then told the other eagles what I had taught it. Before long, several young eagles came to me and asked me to teach them. So I flew with them. We learned together how to see.</p>
+<p>Spiritual vision is taught one eagle at a time, just as my golden eagle teacher had trained me. I remembered how he endured all my complaints, and how he encouraged me whenever I failed again and again.</p>
+<img class="chapter-illustration" src="../images/ch12/ch12_fig2.jpg" alt="Illustration for Chapter 12" loading="lazy">
+<p>I saw that my Master Jesus did the same thing on earth. He chose His disciples and trained them one by one. He was often with them. Although His disciples respected Him deeply, some of them had tempers, and sometimes they argued with one another. I saw that Jesus did not stay with them only when they did well. He walked with them and taught them along the way. Sometimes He rebuked them. Sometimes He patiently answered their questions. Sometimes He said nothing at all, but simply let them watch what He did. Little by little, He changed them.</p>
+<p>I wanted to remain with these young eagles forever. My heart was glad, and my spirit rejoiced. I wanted to stay in this sky and watch these young eagles learn to fly. I praised my Master. I said:</p>
+<p>“Glory, glory, glory!”</p>
+<p>My eyes have seen You. I fix my gaze upon You. My heart belongs to You alone.</p>
+<hr class="scene-break">
+<p>I looked toward the sun. A company of golden eagles came flying toward us from the direction of the light. It was my golden eagle teacher and my companions. Behind them flew two angels. They had once sent me to carry Stephen, who had been stoned to death, to the throne in heaven. I remembered how exhausted I had been after that flight. Yet when Stephen arrived safely before the throne, I realized how small my own effort had been.</p>
+<p>This time, I heard the angels call to me:</p>
+<p>“Come. Your next task is waiting.”</p>
+<p>They told me what I was to do.</p>
+<p>On this journey, I flew with many golden eagles and angels of heaven. We climbed higher and higher until the mountains of the earth slowly disappeared beneath the clouds. As we drew near the glassy sea of heaven, I heard loud thunder and awesome rumblings. I also heard the songs of worship. I did not know what would happen next.</p>
+<p>I saw a vast sea of glass, clear as crystal. The throne was surrounded by a rainbow resembling an emerald, flashing with lightning and echoing with thunder. Around the throne stood figures dressed in white, with golden crowns upon their heads. I counted them. There were twenty-four elders.</p>
+<p>Around the throne were four great living creatures. They worshiped the eternal Creator before the throne and led the worship of heaven. They moved with wings. The first was like a lion. The second was like an ox. The third had a face like a man. The fourth was like a flying eagle. Each had six wings. Day and night they never stopped crying out, in perfect harmony:</p>
+<blockquote>“Holy, holy, holy,<br>
+Lord God Almighty,<br>
+who was, and is, and is to come!”</blockquote>
+<img class="chapter-illustration" src="../images/ch12/ch12_fig3.jpg" alt="Illustration for Chapter 12" loading="lazy">
+<p>Their voices grew louder until they filled all of heaven.</p>
+<p>Whenever they gave glory, honor, and thanks to the King upon the throne, the twenty-four elders fell down before the Creator.</p>
+<p>They laid their crowns before the throne and said:</p>
+<blockquote>“Our Lord and our God,<br>
+You are worthy to receive glory, honor, and power,<br>
+for You created all things,<br>
+and by Your will they were created\
+and have their being.”</blockquote>
+<hr class="scene-break">
+<p>In heaven, I heard the angels passing a message from one to another. The whole sky became solemn. They were preparing for something. No one explained it directly to me. But in the voices moving through heaven, I heard it:</p>
+<blockquote>The judgment of the whole earth was about to begin.</blockquote>
+<p>I remembered when my Master Jesus was still on earth. He had told the people that the kingdom of heaven was near and that they should repent. He had also warned them that one day judgment would come.</p>
+<p>Was this that day?</p>
+<p>Once, I had flown above the crowds while He spoke. Some heard His words but refused to turn back. Some even hated Him. I could not understand why people would reject a Master who loved them so deeply. Now I understood. The day He had spoken about had come. All of us golden eagles stopped beating our wings and hovered above the glassy sea.</p>
+<hr class="scene-break">
+<p>The Creator seated upon the throne was surrounded by glorious light. In His hand was a scroll. I heard a mighty angel proclaim with a loud voice:</p>
+<p>“Who is worthy to open the scroll?”</p>
+<p>I heard someone weeping. It was John. I had seen him before—the John who had followed my Master Jesus. He saw that no creature in heaven or on earth was worthy to open the scroll, and he wept bitterly. Then one of the elders said to him:</p>
+<p>“Do not weep. Behold, the Lion of the tribe of Judah, the Root of David, has conquered. He is worthy to open the scroll and to break its seven seals.”</p>
+<p>Little by little, I began to understand. The scroll contained God's judgment upon the world. Once it was opened, and the seven seals were broken one by one, terrible things would unfold upon the earth.</p>
+<img class="chapter-illustration" src="../images/ch12/ch12_fig4.jpg" alt="Illustration for Chapter 12" loading="lazy">
+<p>Then I saw my Lord Jesus come before the throne. He looked like a Lamb who had been slain. I knew Him.</p>
+<p>It was my Master Jesus. I remembered the day He was crucified. I had cried that day. I had asked my Master:</p>
+<p>“They have treated You with such cruelty. Why do You say nothing?”</p>
+<p>Now He came forward and took the scroll from the right hand of the One seated upon the throne. At that moment, the twenty-four elders fell down together and began to sing a new song:</p>
+<blockquote>“You are worthy to take the scroll<br>
+and to open its seals,<br>
+for You were slain,<br>
+and with Your blood You purchased people for God<br>
+from every tribe and language and people and nation.<br>
+You have made them a kingdom and priests to our God,<br>
+and they shall reign upon the earth.”</blockquote>
+<p>When the elders had finished singing, countless angels surrounded the throne, the living creatures, and the elders.</p>
+<p>They sang:</p>
+<blockquote>“Worthy is the Lamb who was slain,<br>
+to receive power and riches and wisdom and strength,<br>
+honor and glory and praise!”</blockquote>
+<p>Then I heard praise rising from heaven and earth, from beneath the earth and from the sea—from every creature in all creation. Birds filled the sky with their cries. The waters were alive with their voices. The earth itself seemed to answer with the sounds of countless creatures. Their voices intertwined and rose into a magnificent harmony throughout heaven. They said:</p>
+<blockquote>“To Him who sits upon the throne<br>
+and to the Lamb<br>
+be praise and honor and glory and power,<br>
+forever and ever!”</blockquote>
+<p>I looked up at the Lamb. He held the scroll. I knew that next He would break the first seal.</p>
+<hr class="scene-break">
+<p>I saw the judgment of God unfold one seal at a time. The Lamb opened the first four seals. Each time a seal was broken, one of the four living creatures called out with a mighty voice:</p>
+<p>“Come!”</p>
+<img class="chapter-illustration" src="../images/ch12/ch12_fig5.jpg" alt="Illustration for Chapter 12" loading="lazy">
+<p>Then I saw four riders appear, one after another. A white horse. A red horse. A black horse. A pale horse. They went out across the earth. War, famine, and death followed them.</p>
+<hr class="scene-break">
+<p>The fifth seal was opened. I heard the cries of those who had been killed because they had borne witness to the word of God. They cried out from beneath the altar:</p>
+<blockquote>“Sovereign Lord, holy and true,<br>
+how long before You judge those <br> 
+who dwell on the earth <br>
+and avenge our blood?”</blockquote>
+<p>I heard their voices. They were people who had once borne witness to my Master. Now they were dead. They had not forgotten God. They had not denied His name. Now they cried out before Him for justice. I saw each of them receive a white robe. A voice told them to rest a little longer, until the number of their fellow servants and brothers and sisters who would also be killed, as they had been, was complete.</p>
+<hr class="scene-break">
+<p>Then the sixth seal was opened. The stars of heaven fell to the earth, one after another, like figs falling from a fig tree shaken violently by a great wind. Mountains and islands were moved from their places. An earthquake came upon the earth. No one had ever seen such a terrible disaster. I saw the kings of the earth crying out:</p>
+<blockquote>“Fall on us!<br>
+Hide us from the face of the One <br>
+seated on the throne<br>
+and from the wrath of the Lamb!”</blockquote>
+<p>I saw them running in panic, searching for places to hide. Some fell to the ground. Some curled themselves behind the rocks, their eyes filled with terror. But there was no corner that could hide them. No mountain could cover them.</p>
+<p>In heaven, I saw the people who had been redeemed. They came from every nation, tribe, people, and language. They stood before the throne and before the Lamb, clothed in white robes, holding palm branches in their hands.</p>
+<p>They sang a song that no other creature could sing. It was the song of those who had known tears, who had passed through death, and who had been redeemed by the Lamb. One by one, generation after generation, they had been redeemed by Him. Their song softened the sorrow of heaven and earth. Their voices sang of the joy of redemption. They cried out:</p>
+<blockquote>“Salvation belongs to our God<br>
+who sits upon the throne,<br>
+and to the Lamb!”</blockquote>
+<p>I remembered something the apostle John had once said: If everything Jesus had done were written down one by one, the whole world could not contain the books that would be written. Now, as I looked upon all these people redeemed by the Lamb, I suddenly understood. How much more was there than all the things Jesus had done while He walked upon the earth? Every redeemed person had a story. I looked at them and remembered the people I had seen weeping on the earth. Some of their tears I had watched from high above. Some of their suffering I could only watch from a distance. But now, before the throne, I saw the truth: Not one tear had been forgotten.</p>
+<hr class="scene-break">
+<p>Then the seventh seal was opened. Silence fell over heaven. It was like the pause between two notes of music. Everyone held their breath.</p>
+<p>Then, suddenly, the trumpets sounded. Seven angels blew seven trumpets. Each trumpet released another great and terrible judgment upon the earth.</p>
+<p>I saw the earth tremble. I saw fire and smoke rising. I saw people fleeing in terror. How I longed for them to turn back.</p>
+<p>“Repent! Repent! There is still time!”</p>
+<p>I cried out from the sky. But I saw that they still refused to repent. The rest of mankind, those who had not been killed by these plagues, still would not repent. Instead, they clenched their fists and cursed the God of heaven.</p>
+<p>I also saw people stealing. Some broke into their neighbors' homes and took what they had stored away. The disasters came. The earth shook. People knew that judgment had arrived. And yet they still clung tightly to their idols and possessions. They still refused to turn back. I wept in the sky. Why? You have seen all these things. Why will you still not return to the Lord who created you?</p>
+<hr class="scene-break">
+<p>Then it was my turn to speak. When the fourth angel sounded his trumpet, I knew my moment had come. I cried out across the heavens:</p>
+<blockquote>“Woe! Woe! Woe<br>
+to those who dwell on the earth,<br>
+for the remaining three angels<br>
+are about to sound their trumpets!”</blockquote>
+<p>I continued flying through the sky. Then I saw three angels flying above the earth. One of them was proclaiming the eternal gospel to every nation, tribe, language, and people. I understood then that even after judgment had begun, the call of the gospel had not ceased. I heard his voice:</p>
+<blockquote>“Fear God and give Him glory,<br>
+because the hour of His judgment has come.<br>
+Worship Him who made heaven and earth,<br>
+the sea and the springs of water.”</blockquote>
+<p>I understood. Before the final judgment came, God was still calling people to repent.</p>
+<hr class="scene-break">
+<p>I know that you humans wrote these things down in a book called the Bible. It also records many things I never saw with my own eyes. Later, I saw tyrants throughout the generations try to burn the Bible and erase it from the earth. But instead, it spread from generation to generation. People tried to extinguish the words of my Master. But the light of those words only shone farther across the earth.</p>
+<p>That book records the Creator. It also records His plan to save humanity. And we eagles are part of that story.</p>
+<p>I once thought that all I could see was the sky, the mountains, the rivers, and the earth. Then I saw Jesus. I saw Him walking among people. I saw Him suffer. I saw Him nailed to the cross. I saw Him rise from the dead. I carried Stephen into heaven. And now I fly once more before the throne. I have seen the Lamb open the scroll. I have seen all creation bow before Him in worship. The glory I have seen is my Master.</p>
+<blockquote>“I tell you, if they keep silent,\
+the stones will cry out.”</blockquote>
+<blockquote>The End</blockquote>
+  </div>
+</div>
+
+<div class="quiz-cta">
+  <h3>🌟 Finished this chapter?</h3>
+  <p>Log in to the Reading Quest and answer three questions about "The Throne in Heaven" to earn stars and points!</p>
+  <a class="btn" href="../quiz.html?ch=12">Take the Chapter 12 Quiz</a>
+</div>
+
+<div class="chapternav">
+  <a class="prev" href="chapter-11.html"><div class="dir">&larr; Previous</div><div class="lbl">Walk With Him Two Miles</div></a>
+  <a class="next" href="../quiz.html"><div class="dir">Next &rarr;</div><div class="lbl">Play the Reading Quest</div></a>
+</div>
+<footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
+</div>
+</body>
+</html>

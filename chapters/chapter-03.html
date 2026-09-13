@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Story of Centurion — Chapter 03 of 12 — The Eyes of the Eagle</title>
+<meta name="description" content="An illustrated retelling of the life of Jesus, seen through the eyes of a bald eagle over Galilee — by Chris Kuo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-deep:#1B4B66; --sky-bright:#3E86A0; --sun-gold:#F2A93B;
+  --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
+  background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;}
+a{color:inherit;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;margin-bottom:18px;flex-wrap:wrap;gap:10px;
+}
+header.site a.brand{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;text-decoration:none;color:#fff;}
+header.site nav a{
+  color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+  background:rgba(10,30,40,.28);border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 16px;margin-left:8px;display:inline-block;
+}
+header.site nav a.quiz{background:var(--sun-gold);color:#4A2E00;border:none;}
+
+.panel{background:var(--cloud);border-radius:24px;padding:28px 26px 24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
+.panel + .panel{margin-top:18px;}
+.eyebrow{font-weight:800;color:var(--leaf-teal);font-size:.78rem;letter-spacing:.4px;margin:0 0 6px;}
+
+/* hero (landing page only) */
+.hero{text-align:center;color:#fff;padding:30px 10px 10px;}
+.hero .by{font-weight:700;opacity:.85;font-size:.9rem;}
+.hero h1{font-size:2.1rem;margin:6px 0 4px;}
+.hero h1 em{font-style:italic;}
+.hero .subtitle{font-size:1.2rem;font-weight:700;opacity:.95;margin:0 0 18px;}
+.hero p.lede{max-width:56ch;margin:0 auto 22px;line-height:1.7;font-weight:600;opacity:.95;}
+.hero .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px;}
+.toc-card{
+  display:block;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;
+  border:1px solid #E4EBEE;color:var(--ink);
+}
+.toc-card:hover{border-color:var(--sky-bright);}
+.toc-card .n{font-family:'Baloo 2';color:var(--sky-deep);font-weight:700;font-size:.85rem;}
+.toc-card .t{font-weight:800;margin-top:2px;}
+
+button, a.btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:999px;padding:12px 26px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
+  text-decoration:none;display:inline-block;
+}
+a.btn.secondary{background:transparent;color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.7);}
+
+/* chapter reading page */
+.chapter-text{font-size:1.08rem;line-height:1.75;}
+.chapter-text p{margin:0 0 14px;}
+.chapter-text p:last-child{margin-bottom:0;}
+.chapter-text img.chapter-illustration{width:100%;height:auto;border-radius:12px;margin:16px 0;border:1px solid #E4EBEE;display:block;}
+.chapter-text hr.scene-break{border:none;text-align:center;margin:22px 0;height:1.2em;color:var(--sky-bright);font-size:1.1rem;letter-spacing:10px;}
+.chapter-text hr.scene-break::before{content:"\2022 \2022 \2022";}
+.chapter-text blockquote{margin:16px 8px;padding:12px 18px;border-left:4px solid var(--sun-gold);background:#FCF6E8;border-radius:0 10px 10px 0;font-style:italic;font-weight:700;color:#5C4419;}
+
+.chapternav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.chapternav a{
+  flex:1;min-width:140px;text-decoration:none;background:#fff;border:1px solid #E4EBEE;
+  border-radius:14px;padding:12px 16px;color:var(--ink);
+}
+.chapternav a:hover{border-color:var(--sky-bright);}
+.chapternav .dir{font-size:.75rem;font-weight:800;color:var(--leaf-teal);}
+.chapternav .lbl{font-weight:800;}
+.chapternav a.next{text-align:right;}
+
+.quiz-cta{
+  margin-top:20px;background:linear-gradient(180deg,#FFF6E4,#FCEFD6);
+  border:2px solid var(--sun-gold);border-radius:18px;padding:20px 22px;text-align:center;
+}
+.quiz-cta h3{margin:0 0 6px;color:#7A4A0A;}
+.quiz-cta p{margin:0 0 14px;font-weight:700;color:#8A5B18;}
+
+footer.note{text-align:center;color:#E7F1F5;font-size:.78rem;margin-top:26px;line-height:1.6;}
+footer.note a{color:#fff;font-weight:700;}
+
+@media (max-width:480px){
+  header.site{flex-direction:column;align-items:flex-start;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="../index.html">🦅 The Eyes of the Eagle</a>
+  <nav>
+    <a href="../index.html">Read the Book</a>
+    <a class="quiz" href="../quiz.html">🎮 Reading Quest Game</a>
+  </nav>
+</header>
+
+<div class="panel">
+  <p class="eyebrow">CHAPTER 03 OF 12</p>
+  <h1 style="margin:0 0 16px;color:var(--sky-deep);">The Story of Centurion</h1>
+  <div class="chapter-text">
+    <img class="chapter-illustration" src="../images/ch03/ch03_fig1.jpg" alt="Illustration for Chapter 3" loading="lazy">
+<p>At the edge of the forest was the same valley I had seen the day before. I circled above it and recognized the familiar figure at once.</p>
+<p>It was my Master.</p>
+<p>I saw people gathering slowly from every direction. Some came down from the hills; others hurried along the narrow paths that wound through the valley. The valley, which had been so quiet the day before, was once again filling with the sound of human voices.</p>
+<p>That day, I noticed several Roman soldiers patrolling in the distance. They stopped and watched the crowd from afar.</p>
+<p>I saw their leader.</p>
+<p>I heard the others call him “Centurion.”</p>
+<p>So I assumed that was his name. He was not an ordinary soldier. He commanded a large company of men—perhaps a hundred or so.</p>
+<p>We bald eagles often saw Roman soldiers. They marched from one town to another, their helmets and shields flashing beneath the sunlight. Centurion had joined the army when he was young. He had risen from an ordinary soldier to become an officer.</p>
+<p>That day, he had been accompanying his soldiers on patrol. But when he heard the voice of Jesus, he gradually came to a stop. He stood at the edge of the crowd and said nothing.</p>
+<p>He simply listened.</p>
+<p>At first, his face still carried the expression of an officer on duty. From time to time, he glanced at the crowd and then back at Jesus, as though trying to determine what kind of man this teacher really was.</p>
+<p>But after a while, his eyes no longer left Jesus. He listened carefully to every word. Sometimes his brow tightened. Sometimes he lowered his head in thought. Eventually, he even stepped forward a few paces, simply so that he could hear more clearly.</p>
+<p>The soldiers standing beside him noticed. But they did not think it strange. Several of them talked among themselves, occasionally looking toward the crowd and then toward their commander. Only Centurion grew quieter and quieter. He was listening to a story unlike any he had ever heard.</p>
+<p>And he began to realize that the words of Jesus were not merely being spoken to the crowd. They were entering his heart.</p>
+<img class="chapter-illustration" src="../images/ch03/ch03_fig2.jpg" alt="Illustration for Chapter 3" loading="lazy">
+<p>Centurion believed that there must be a supreme ruler over heaven and earth. He understood this because of the army. In the army, commands passed from one rank to another. Every soldier knew whom he was expected to obey and who had the authority to give him orders. A great army could have many soldiers, many officers, and many commanders. But in the end, everyone answered to a higher authority. So Centurion believed there was a God who had created heaven and earth and who ruled over all things.</p>
+<p>But when Jesus began speaking of a “Father,” something in Centurion's heart was stirred.</p>
+<p>He could understand a supreme God. He could understand a ruler who governed heaven and earth. But the thought that the Creator could become a Father to His creatures was something entirely different.</p>
+<p>Jesus began telling the story of a prodigal son. A younger son left his father, squandered his inheritance, and eventually became so poor that he could do nothing but feed pigs in the fields. When he had nowhere else to turn, he remembered his father and decided to go home. While he was still a long way off, his father saw him. The father ran to him, embraced him, and kissed him again and again. He did not begin by demanding an account of his son's failures. Instead, he ordered his servants to bring the finest robe and put it on him, to place a ring on his finger, and to prepare a feast. “For this son of mine was dead and is alive again; he was lost and is found.” Centurion listened to the story without speaking for a long time.</p>
+<p>The story touched something deep within him. He lowered his head, his eyes fixed upon the ground. He had left home when he was young. In the army, he had learned discipline and obedience. He had also learned how to make others obey him. He could understand a king. He could understand a supreme commander.</p>
+<p>But he could not understand a father.</p>
+<p>He spoke quietly to himself: “A great army can have many officers, but only one supreme commander. So God must be that supreme commander.”</p>
+<p>Yet another voice within him tried to pull him back toward reality. “Life is simply harsh and practical.” “Do not be so naive.” As for the prodigal son in the story, Centurion thought the man was nothing more than an ungrateful fool.</p>
+<p>And yet, at the same time, he understood exactly what Jesus was saying. The father's great compassion toward his son struck something deep within him.</p>
+<p>Suddenly, Centurion remembered something that had happened many years before. He had been only a young soldier then. One day, he stole money from another soldier and was caught. He was severely punished and nearly lost his place in the army. His military instructor rebuked him harshly. But in the end, that same instructor took money from his own savings and paid the debt for him.</p>
+<p>It was the first time Centurion had truly experienced kindness and mercy. He had carried that memory quietly within him ever since. And now, the story Jesus told had brought it back.</p>
+<p>Over the years, Centurion had begun to feel that his heart was like barren soil, hardened and parched beneath the wind. Outwardly, it remained. But inwardly, it had become dry. He had become a slave to life itself. When he was young, he had been an ambitious adventurer. Now he was little more than a weary wanderer. He had forgotten that, deep within him, he had once longed for the warmth of a father's embrace.</p>
+<p>But now, the heavenly Father Jesus spoke of awakened that long-forgotten longing. If such a Father truly existed, how should he respond?</p>
+<p>He told his doubts to Titus, who was standing beside him. But Titus was not moved by what he heard. Instead, he firmly rejected the message of Jesus.</p>
+<p>“I will never believe it,” he said.</p>
+<p>“My father abandoned me when I was very young. That is why I joined the army. I hate him.”</p>
+<p>Centurion understood Titus. Because that kind of pain was real. He did not blame him.</p>
+<p>Centurion said, “I think there are many kinds of fathers on earth. But the Father in heaven is different. He is perfect.”</p>
+<p>“Perhaps we must first know that perfect Father in heaven before we can truly understand what an earthly father ought to be.”</p>
+<p>Titus still could not accept it.</p>
+<p>Centurion did not argue with him. He simply said to himself, “Just because I have never experienced something does not mean it does not exist.”</p>
+<p>“There are many things that can be learned.” And then, once again, he told himself, “I can learn.”</p>
+<p>He had always been a disciplined man. So he decided to follow the prayer Jesus had taught. That day, he stepped aside, lowered his head, and knelt upon the ground.</p>
+<p>For the first time, he tried to speak to his Father in heaven. With reverence, he recited the prayer Jesus had taught His disciples. From a distance, some of the people saw the Roman officer kneeling. Some assumed he was reporting something to a superior.</p>
+<p>But Centurion felt something changing within him. To become a child of the heavenly Father was an identity that gave him a dignity he had never known. It was a dignity that none of his achievements could ever give him.</p>
+<p>For the first time, he understood that a person's worth does not come from rank, military victories, or the approval of a general. It comes from knowing whose child he is. The dignity he had spent his whole life pursuing was nothing compared with the dignity of being a son.</p>
+<p>He rose to his feet and looked up at the eagle circling in the sky.</p>
+<p>I saw his face. There was a steadiness in his expression, a quiet strength, almost the bearing of a prince. I do not know how the human heart changes. But I knew that the man before me was no longer the man I had watched before. In the days that followed, his soldiers began to say that he was less difficult to be around. He had become gentler. More approachable.</p>
+<p>I watched him recite the Lord's Prayer each day:</p>
+<p>“Our Father which art in heaven,</p>
+<p>Hallowed be Thy name.</p>
+<p>Thy kingdom come.</p>
+<p>Thy will be done in earth, as it is in heaven.</p>
+<p>Give us this day our daily bread.</p>
+<p>And forgive us our debts, as we forgive our debtors.</p>
+<p>And lead us not into temptation,</p>
+<p>but deliver us from evil.</p>
+<p>For Thine is the kingdom,</p>
+<p>and the power,</p>
+<p>and the glory,</p>
+<p>for ever.</p>
+<p>Amen.”</p>
+<img class="chapter-illustration" src="../images/ch03/ch03_fig3.jpg" alt="Illustration for Chapter 3" loading="lazy">
+  </div>
+</div>
+
+<div class="quiz-cta">
+  <h3>🌟 Finished this chapter?</h3>
+  <p>Log in to the Reading Quest and answer three questions about "The Story of Centurion" to earn stars and points!</p>
+  <a class="btn" href="../quiz.html?ch=3">Take the Chapter 3 Quiz</a>
+</div>
+
+<div class="chapternav">
+  <a class="prev" href="chapter-02.html"><div class="dir">&larr; Previous</div><div class="lbl">He Called My Name</div></a>
+  <a class="next" href="chapter-04.html"><div class="dir">Next &rarr;</div><div class="lbl">A Little Boy's Lunch Bag</div></a>
+</div>
+<footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
+</div>
+</body>
+</html>

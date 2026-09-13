@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strange Humans — Chapter 06 of 12 — The Eyes of the Eagle</title>
+<meta name="description" content="An illustrated retelling of the life of Jesus, seen through the eyes of a bald eagle over Galilee — by Chris Kuo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-deep:#1B4B66; --sky-bright:#3E86A0; --sun-gold:#F2A93B;
+  --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
+  background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;}
+a{color:inherit;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;margin-bottom:18px;flex-wrap:wrap;gap:10px;
+}
+header.site a.brand{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;text-decoration:none;color:#fff;}
+header.site nav a{
+  color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+  background:rgba(10,30,40,.28);border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 16px;margin-left:8px;display:inline-block;
+}
+header.site nav a.quiz{background:var(--sun-gold);color:#4A2E00;border:none;}
+
+.panel{background:var(--cloud);border-radius:24px;padding:28px 26px 24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
+.panel + .panel{margin-top:18px;}
+.eyebrow{font-weight:800;color:var(--leaf-teal);font-size:.78rem;letter-spacing:.4px;margin:0 0 6px;}
+
+/* hero (landing page only) */
+.hero{text-align:center;color:#fff;padding:30px 10px 10px;}
+.hero .by{font-weight:700;opacity:.85;font-size:.9rem;}
+.hero h1{font-size:2.1rem;margin:6px 0 4px;}
+.hero h1 em{font-style:italic;}
+.hero .subtitle{font-size:1.2rem;font-weight:700;opacity:.95;margin:0 0 18px;}
+.hero p.lede{max-width:56ch;margin:0 auto 22px;line-height:1.7;font-weight:600;opacity:.95;}
+.hero .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px;}
+.toc-card{
+  display:block;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;
+  border:1px solid #E4EBEE;color:var(--ink);
+}
+.toc-card:hover{border-color:var(--sky-bright);}
+.toc-card .n{font-family:'Baloo 2';color:var(--sky-deep);font-weight:700;font-size:.85rem;}
+.toc-card .t{font-weight:800;margin-top:2px;}
+
+button, a.btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:999px;padding:12px 26px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
+  text-decoration:none;display:inline-block;
+}
+a.btn.secondary{background:transparent;color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.7);}
+
+/* chapter reading page */
+.chapter-text{font-size:1.08rem;line-height:1.75;}
+.chapter-text p{margin:0 0 14px;}
+.chapter-text p:last-child{margin-bottom:0;}
+.chapter-text img.chapter-illustration{width:100%;height:auto;border-radius:12px;margin:16px 0;border:1px solid #E4EBEE;display:block;}
+.chapter-text hr.scene-break{border:none;text-align:center;margin:22px 0;height:1.2em;color:var(--sky-bright);font-size:1.1rem;letter-spacing:10px;}
+.chapter-text hr.scene-break::before{content:"\2022 \2022 \2022";}
+.chapter-text blockquote{margin:16px 8px;padding:12px 18px;border-left:4px solid var(--sun-gold);background:#FCF6E8;border-radius:0 10px 10px 0;font-style:italic;font-weight:700;color:#5C4419;}
+
+.chapternav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.chapternav a{
+  flex:1;min-width:140px;text-decoration:none;background:#fff;border:1px solid #E4EBEE;
+  border-radius:14px;padding:12px 16px;color:var(--ink);
+}
+.chapternav a:hover{border-color:var(--sky-bright);}
+.chapternav .dir{font-size:.75rem;font-weight:800;color:var(--leaf-teal);}
+.chapternav .lbl{font-weight:800;}
+.chapternav a.next{text-align:right;}
+
+.quiz-cta{
+  margin-top:20px;background:linear-gradient(180deg,#FFF6E4,#FCEFD6);
+  border:2px solid var(--sun-gold);border-radius:18px;padding:20px 22px;text-align:center;
+}
+.quiz-cta h3{margin:0 0 6px;color:#7A4A0A;}
+.quiz-cta p{margin:0 0 14px;font-weight:700;color:#8A5B18;}
+
+footer.note{text-align:center;color:#E7F1F5;font-size:.78rem;margin-top:26px;line-height:1.6;}
+footer.note a{color:#fff;font-weight:700;}
+
+@media (max-width:480px){
+  header.site{flex-direction:column;align-items:flex-start;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="../index.html">🦅 The Eyes of the Eagle</a>
+  <nav>
+    <a href="../index.html">Read the Book</a>
+    <a class="quiz" href="../quiz.html">🎮 Reading Quest Game</a>
+  </nav>
+</header>
+
+<div class="panel">
+  <p class="eyebrow">CHAPTER 06 OF 12</p>
+  <h1 style="margin:0 0 16px;color:var(--sky-deep);">Strange Humans</h1>
+  <div class="chapter-text">
+    <img class="chapter-illustration" src="../images/ch06/ch06_fig1.jpg" alt="Illustration for Chapter 6" loading="lazy">
+<p>Of all the creatures I had seen in the sky, upon the earth, and in the sea, none seemed more intelligent than human beings.</p>
+<p>They were smaller than the trees, yet they could cut down entire forests. They used wood to build houses, and even built towers that seemed to reach toward the sky. There were far fewer of them than there were sheep or goats, yet they could raise flocks numbering in the thousands. They knew when to sow and when to harvest. They knew when grapes were ripe and how to turn them into wine. Their boys went to school to learn. Their girls braided their hair into beautiful plaits. They could write. They could count. They could build. They could sail farther than we could fly.</p>
+<p>For a long time, I assumed that a people so intelligent must surely know their Master.</p>
+<p>But there was one thing about human beings that I could never understand. They would kneel before things that were not their Master. And somehow, they always seemed to look to those things to tell them who they were.</p>
+<p>One day, I saw a woodcutter in the forest. He worked hard all day, cutting and splitting trees. By the time darkness approached, he was exhausted and hungry. So he cut some firewood and built a fire. With the wood, he cooked a pot of soup and roasted a chicken.</p>
+<p>That evening, he ate until he was full and seemed content. The fire gradually burned low. A few pieces of wood remained. He picked up one of them and began to carve.</p>
+<img class="chapter-illustration" src="../images/ch06/ch06_fig2.jpg" alt="Illustration for Chapter 6" loading="lazy">
+<p>I watched from a branch above him. His hands were skillful. Before long, the shape of a bird began to appear in the piece of wood. I tilted my head and watched for a long time. It was a bird.</p>
+<p>The man had carved a bird. Then he lifted it high into the air and knelt down before it. He called the wooden bird his master.</p>
+<p>I opened my eyes wide. I could not understand it. A moment before, he had used wood from the very same tree to build his fire, cook his soup, and roast his chicken. Now he had carved the remaining wood into a bird— and was bowing down before it.</p>
+<p>I thought that if the wooden bird had truly been alive, it would probably have been even more surprised than I was.</p>
+<p>But human beings did not seem to find anything strange about it. They could carve birds. They could carve animals. They could carve human beings. They could even shape metal into images of gods. They lifted up the things they had made with their own hands, and then knelt before them.</p>
+<p>I have heard that some people even offer their sons and daughters to these idols, burning them as sacrifices before things they themselves have made. Whenever I think about this, I understand a little more why my Master was so greatly angered by it. They were creatures made by the hand of their Master.</p>
+<p>Yet they had turned away from Him and worshiped the things they themselves had made. It is something I still cannot understand.</p>
+<p>Every day, we fly through the sky. When morning comes, we know where the sun will rise. When the seasons change, migrating birds know when it is time to leave. Pigeons know their way home. We know when to spread our wings and when to search for a place to rest.</p>
+<p>The birds of the sky know the seasons. The fish of the sea know when the waters rise and when they recede. The animals of the earth know their paths. And yet human beings so often do not know their Master.</p>
+<p>They can study the heavens, yet forget the One who stretched them out. They can sail upon the sea, yet forget the One who walks upon its waves. They can count the stars, yet fail to know the One who placed each of them in the heavens.</p>
+<p>We do not understand everything our Master does. Sometimes we do not even know why He sends the wind from the east, why He causes rain to fall upon one forest and not another, or why He allows a little bird to lose its nest.</p>
+<p>But there is one thing we know:</p>
+<p>We were made by Him.</p>
+<p>He is our Master.</p>
+<p>We do not need to make a master for ourselves.</p>
+<p>Human beings are different. They always seem to need something to take the place of their Master. Sometimes it is a piece of wood. Sometimes a statue of gold. Sometimes power. Sometimes wealth. And sometimes, it is even themselves.</p>
+<p>Human beings really are strange. They are the wisest of all the creatures their Master has made, yet they are strangely prone to forgetting that they themselves were once fashioned by the hand of the Master— His own carefully made creation.</p>
+  </div>
+</div>
+
+<div class="quiz-cta">
+  <h3>🌟 Finished this chapter?</h3>
+  <p>Log in to the Reading Quest and answer three questions about "Strange Humans" to earn stars and points!</p>
+  <a class="btn" href="../quiz.html?ch=6">Take the Chapter 6 Quiz</a>
+</div>
+
+<div class="chapternav">
+  <a class="prev" href="chapter-05.html"><div class="dir">&larr; Previous</div><div class="lbl">The Wind and the Sea Were Still</div></a>
+  <a class="next" href="chapter-07.html"><div class="dir">Next &rarr;</div><div class="lbl">My Master Was Crucified</div></a>
+</div>
+<footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
+</div>
+</body>
+</html>

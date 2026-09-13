@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>He Called My Name — Chapter 02 of 12 — The Eyes of the Eagle</title>
+<meta name="description" content="An illustrated retelling of the life of Jesus, seen through the eyes of a bald eagle over Galilee — by Chris Kuo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-deep:#1B4B66; --sky-bright:#3E86A0; --sun-gold:#F2A93B;
+  --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
+  background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;}
+a{color:inherit;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;margin-bottom:18px;flex-wrap:wrap;gap:10px;
+}
+header.site a.brand{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;text-decoration:none;color:#fff;}
+header.site nav a{
+  color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+  background:rgba(10,30,40,.28);border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 16px;margin-left:8px;display:inline-block;
+}
+header.site nav a.quiz{background:var(--sun-gold);color:#4A2E00;border:none;}
+
+.panel{background:var(--cloud);border-radius:24px;padding:28px 26px 24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
+.panel + .panel{margin-top:18px;}
+.eyebrow{font-weight:800;color:var(--leaf-teal);font-size:.78rem;letter-spacing:.4px;margin:0 0 6px;}
+
+/* hero (landing page only) */
+.hero{text-align:center;color:#fff;padding:30px 10px 10px;}
+.hero .by{font-weight:700;opacity:.85;font-size:.9rem;}
+.hero h1{font-size:2.1rem;margin:6px 0 4px;}
+.hero h1 em{font-style:italic;}
+.hero .subtitle{font-size:1.2rem;font-weight:700;opacity:.95;margin:0 0 18px;}
+.hero p.lede{max-width:56ch;margin:0 auto 22px;line-height:1.7;font-weight:600;opacity:.95;}
+.hero .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px;}
+.toc-card{
+  display:block;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;
+  border:1px solid #E4EBEE;color:var(--ink);
+}
+.toc-card:hover{border-color:var(--sky-bright);}
+.toc-card .n{font-family:'Baloo 2';color:var(--sky-deep);font-weight:700;font-size:.85rem;}
+.toc-card .t{font-weight:800;margin-top:2px;}
+
+button, a.btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:999px;padding:12px 26px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
+  text-decoration:none;display:inline-block;
+}
+a.btn.secondary{background:transparent;color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.7);}
+
+/* chapter reading page */
+.chapter-text{font-size:1.08rem;line-height:1.75;}
+.chapter-text p{margin:0 0 14px;}
+.chapter-text p:last-child{margin-bottom:0;}
+.chapter-text img.chapter-illustration{width:100%;height:auto;border-radius:12px;margin:16px 0;border:1px solid #E4EBEE;display:block;}
+.chapter-text hr.scene-break{border:none;text-align:center;margin:22px 0;height:1.2em;color:var(--sky-bright);font-size:1.1rem;letter-spacing:10px;}
+.chapter-text hr.scene-break::before{content:"\2022 \2022 \2022";}
+.chapter-text blockquote{margin:16px 8px;padding:12px 18px;border-left:4px solid var(--sun-gold);background:#FCF6E8;border-radius:0 10px 10px 0;font-style:italic;font-weight:700;color:#5C4419;}
+
+.chapternav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.chapternav a{
+  flex:1;min-width:140px;text-decoration:none;background:#fff;border:1px solid #E4EBEE;
+  border-radius:14px;padding:12px 16px;color:var(--ink);
+}
+.chapternav a:hover{border-color:var(--sky-bright);}
+.chapternav .dir{font-size:.75rem;font-weight:800;color:var(--leaf-teal);}
+.chapternav .lbl{font-weight:800;}
+.chapternav a.next{text-align:right;}
+
+.quiz-cta{
+  margin-top:20px;background:linear-gradient(180deg,#FFF6E4,#FCEFD6);
+  border:2px solid var(--sun-gold);border-radius:18px;padding:20px 22px;text-align:center;
+}
+.quiz-cta h3{margin:0 0 6px;color:#7A4A0A;}
+.quiz-cta p{margin:0 0 14px;font-weight:700;color:#8A5B18;}
+
+footer.note{text-align:center;color:#E7F1F5;font-size:.78rem;margin-top:26px;line-height:1.6;}
+footer.note a{color:#fff;font-weight:700;}
+
+@media (max-width:480px){
+  header.site{flex-direction:column;align-items:flex-start;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="../index.html">🦅 The Eyes of the Eagle</a>
+  <nav>
+    <a href="../index.html">Read the Book</a>
+    <a class="quiz" href="../quiz.html">🎮 Reading Quest Game</a>
+  </nav>
+</header>
+
+<div class="panel">
+  <p class="eyebrow">CHAPTER 02 OF 12</p>
+  <h1 style="margin:0 0 16px;color:var(--sky-deep);">He Called My Name</h1>
+  <div class="chapter-text">
+    <img class="chapter-illustration" src="../images/ch02/ch02_fig1.jpg" alt="Illustration for Chapter 2" loading="lazy">
+<p>Ever since the golden eagle had taught me how to see, I had grown even more eager to look upon the world through the light. I was no longer satisfied with watching only the sky, the sea, the forests, and the valleys. I began to pay attention to every living thing. Especially human beings.</p>
+<p>My teacher had told me that human beings were creatures whom the Creator regarded with special care. So I began to watch them more closely.</p>
+<p>Of all the living creatures upon the earth, human beings seemed to have the greatest power to change the world around them. We often saw them from high above. They built houses, cultivated fields, tended flocks, and carved roads through valleys and along rivers. They could even pile stones into walls and shape wood into boats that carried them to places far beyond our sight.</p>
+<p>Yet we eagles never dared to come too close to them. My parents had once told me that human beings were made by the Creator in His own image.</p>
+<p>I gradually discovered that human beings truly were different from the rest of creation. They could think. They could love one another, and they could hurt one another. They could rejoice over things they could not see, and they could worry about things that had not yet happened. Sometimes peace rested upon their faces. At other times, deep fear seemed to hide within their eyes.</p>
+<p>When I looked at people through the light, I could see white clouds or dark clouds above their heads. Above some people hung clouds that were pure and gentle. Sunlight passed through them, making their faces appear peaceful and bright. Above others gathered heavy clouds of darkness. These were not clouds in the sky. They did not drift away with the wind, nor could sunlight scatter them. And human beings themselves could not see the clouds above their own heads.</p>
+<p>Those who carried white clouds seemed gentler, and I was not afraid to come near them. But those who carried dark clouds seemed to have their fear, anxiety, jealousy, and even resentment written across their faces. I kept my distance from them.</p>
+<p>All of this made me believe even more strongly that we had not come into this world by accident. The mountains had their order. The sea had its boundaries. Birds knew how to fly. Fish knew how to move through the depths of the water. A seed fell into the earth and somehow knew to grow toward the light. I did not know how the Creator had made all these things. Yet behind everything I saw, there seemed to be a pair of eyes. Behind every living thing, there seemed to be a Creator. And so, when I looked upon the world, I no longer saw only what had been created. Through the things He had made, I began to search for the Creator whom I could not see.</p>
+<hr class="scene-break">
+<p>Then, one day, I saw my Master for the first time. That was the first time I discovered that there was a kind of light I had never seen before. There was light upon Him. But it was not the light of the sun falling upon Him. When sunlight falls upon a person, it changes as the person moves.</p>
+<p>But there was light upon Him. Even when He walked among the crowd, I could still see it. Even when He entered the forest, the light remained. I had spent so long learning to see through the light. But that day, for the first time, I saw One who seemed to carry the light within Himself.</p>
+<p>That day, He was teaching a crowd of people. Only later did I learn His name.</p>
+<p>Jesus.</p>
+<p>I was perched on a tall tree at the edge of the forest. Beyond the trees lay a broad valley filled with villages, fields, and pasturelands where shepherds tended their flocks. A gentle breeze came through. I spread my wings and left the treetop, circling above the valley. The wind passed beneath my wings, and all I had to do was let it carry me. From that height, the people below seemed very small.</p>
+<p>A great crowd had gathered from every direction. Farmers, shepherds, women, children, and many others whose names I did not know sat upon the hillside around Jesus. He wore clothing much like the others. There was nothing about Him that seemed outwardly remarkable.</p>
+<p>Yet whenever Jesus spoke, the crowd became quiet. His words seemed to flow from somewhere deep within Him, as though they had never been taught to Him by anyone else.</p>
+<p>It was then that I noticed a man. A few days earlier, I had flown over his barn. Around it, I had seen many lizards and frogs.</p>
+<p>He had the largest barn in the village. I guessed that he must have been the richest man there. Inside his barn were carts, farming tools, and equipment for grinding grain. I had often watched him carry one heavy sack of grain after another into the barn, only to come back out and carry in more.</p>
+<p>Whenever he set down a heavy sack, he did so slowly. He looked as though those grains had been weighing upon him for many years. Even when he sat down to rest, I could almost imagine the weight still hanging from his shoulders. His brow was always furrowed. He would look at his full barn, then at his vast fields, and finally into the distance. It was as though there were always something he could not stop worrying about.</p>
+<p>That day, I saw him again. He was standing beside the field, talking with another man. They looked out over the fields that had already been harvested.</p>
+<p>“The harvest is good this year,” the other man said.</p>
+<p>He nodded, but he did not smile. “Yes.”</p>
+<p>“Your barns are already full.” He crouched down, picked up a handful of earth, and slowly crushed it between his fingers.</p>
+<p>“But I am worried about next year.” He looked across his fields and was silent for a moment.</p>
+<p>“This year has been good. But what about next year?”</p>
+<p>“Will everything I have now really be enough to last me?” He lowered his head and looked at the soil in his hand.</p>
+<p>“I just want to make sure I will never be in want.”</p>
+<p>“You already have plenty,” someone said.</p>
+<p>But he shook his head. “Not enough.”</p>
+<img class="chapter-illustration" src="../images/ch02/ch02_fig2.jpg" alt="Illustration for Chapter 2" loading="lazy">
+<hr class="scene-break">
+<p>Jesus began speaking about me, flying in the sky.</p>
+<p>“Look at the birds of the air. They do not sow or reap or store grain in barns.”</p>
+<p>“Yet your heavenly Father feeds them. Are you not much more valuable than they?”</p>
+<p>Jesus lifted His head. He stretched out His hand and pointed toward me as I circled high above the valley. The crowd followed His gesture. One pair of eyes after another turned toward me. I had never been watched by so many people at once. I did not know where I was supposed to fly, so I simply continued circling through the sky.</p>
+<p>And then, in that moment, His eyes met mine. For an instant, all I could see was Jesus and the hand He had raised toward me. The way He looked at me was nothing like the way hunters looked at us.</p>
+<p>And suddenly, I understood what He had just said.</p>
+<p>“Your heavenly Father feeds them.”</p>
+<p>I was one of those birds He was talking about. And that heavenly Father was watching over me. Jesus continued speaking to them:</p>
+<p>“Can any one of you by worrying add a single hour to your life?”</p>
+<p>The man with the furrowed brow lowered his head. He said nothing more.</p>
+<p>Then Jesus began speaking about the flowers of the field. He told the people to look at the flowers scattered across the valley.</p>
+<p>“Consider how the wildflowers grow. They do not labor or spin.”</p>
+<p>I followed His gaze. The valley was filled with flowers. When the wind moved through them, they swayed gently beneath the brilliant sunlight.</p>
+<p>“Yet I tell you, not even Solomon in all his splendor was dressed like one of these,” Jesus said.</p>
+<p>The man slowly lifted his head. One of his companions leaned toward him and whispered, “He is right.”</p>
+<p>Another man, who knew him well and knew how often he worried, said, “The crops have not even been planted, and you are already worrying about the harvest.”</p>
+<p>The man did not answer. He simply looked at the flowers in the valley. The furrows in his brow seemed to loosen. Perhaps, for the first time, he realized that while he had been busy preparing for tomorrow, he had never truly stopped to look at the flowers of today.</p>
+<p>At last Jesus said, “If that is how God clothes the grass of the field, which is here today and tomorrow is thrown into the fire, will He not much more clothe you—you of little faith?”</p>
+<p>The man drew a deep breath. And then, to my surprise, he smiled. He stood and lifted his face toward the sky. The wind moved through his hair. His shoulders slowly straightened. Whatever had been pressing upon him for so long seemed to loosen its grip. It was like dry earth after a long drought, when green shoots finally begin to break through the soil. A smile slowly spread across his face. Then he opened his arms and cried out toward the sky in joy.</p>
+<hr class="scene-break">
+<p>Jesus continued speaking, telling one remarkable story after another. The people sat upon the hillside listening through the afternoon, as though His teaching had only just begun. Even I had forgotten how long I had been flying above Him.</p>
+<p>Then Jesus began speaking about sheep. I especially liked listening when Jesus talked about sheep, because I had flown over many shepherds' sheepfolds. Some sheepfolds were enclosed by low walls made of stones, with only one narrow entrance.</p>
+<p>At night, the shepherds would lead the sheep inside. The sheep would huddle together. And the shepherd would remain near the entrance. During the night, wolves would howl in the distance. Their cries echoed through the valleys. Sometimes foxes would come near as well. I had seen shepherds take up their staffs and drive away wolves that came too close to the flock. On some nights, the shepherd hardly slept at all. Even when dawn came, he remained beside the sheep.</p>
+<p>Jesus said that a shepherd knows his sheep. And the sheep know the voice of their shepherd.</p>
+<img class="chapter-illustration" src="../images/ch02/ch02_fig3.jpg" alt="Illustration for Chapter 2" loading="lazy">
+<p>Strangely, whenever Jesus spoke about sheep, I felt that He was speaking about something more than sheep. It seemed that He was speaking about these people.</p>
+<p>Every time Jesus spoke a word, I seemed to see tiny seeds of light falling from His mouth. They were seeds of light that, as far as I could tell, only I could see.</p>
+<p>They drifted toward the crowd. Some fell into people's hearts. And when they fell, the darkness above those people slowly began to brighten. Places that had once been dim began to glow. Some listened intently. I saw the seeds enter their hearts, as though tiny sparks had begun to shine within dark soil.</p>
+<p>But I also saw seeds fall beside some people. They paid no attention. They were too busy talking among themselves. Or arguing with one another. Some simply got up and walked away, returning to their villages and their ordinary work. Those seeds of light fell upon the ground. And soon, their light faded away.</p>
+<p>I had never seen light like that anywhere else. Only the words that came from His mouth carried such light. I could not help but wonder:</p>
+<p>“Why do His words carry light?”</p>
+  </div>
+</div>
+
+<div class="quiz-cta">
+  <h3>🌟 Finished this chapter?</h3>
+  <p>Log in to the Reading Quest and answer three questions about "He Called My Name" to earn stars and points!</p>
+  <a class="btn" href="../quiz.html?ch=2">Take the Chapter 2 Quiz</a>
+</div>
+
+<div class="chapternav">
+  <a class="prev" href="chapter-01.html"><div class="dir">&larr; Previous</div><div class="lbl">Spiritual Vision</div></a>
+  <a class="next" href="chapter-03.html"><div class="dir">Next &rarr;</div><div class="lbl">The Story of Centurion</div></a>
+</div>
+<footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
+</div>
+</body>
+</html>

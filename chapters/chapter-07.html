@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Master Was Crucified — Chapter 07 of 12 — The Eyes of the Eagle</title>
+<meta name="description" content="An illustrated retelling of the life of Jesus, seen through the eyes of a bald eagle over Galilee — by Chris Kuo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-deep:#1B4B66; --sky-bright:#3E86A0; --sun-gold:#F2A93B;
+  --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
+  background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;}
+a{color:inherit;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;margin-bottom:18px;flex-wrap:wrap;gap:10px;
+}
+header.site a.brand{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;text-decoration:none;color:#fff;}
+header.site nav a{
+  color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+  background:rgba(10,30,40,.28);border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 16px;margin-left:8px;display:inline-block;
+}
+header.site nav a.quiz{background:var(--sun-gold);color:#4A2E00;border:none;}
+
+.panel{background:var(--cloud);border-radius:24px;padding:28px 26px 24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
+.panel + .panel{margin-top:18px;}
+.eyebrow{font-weight:800;color:var(--leaf-teal);font-size:.78rem;letter-spacing:.4px;margin:0 0 6px;}
+
+/* hero (landing page only) */
+.hero{text-align:center;color:#fff;padding:30px 10px 10px;}
+.hero .by{font-weight:700;opacity:.85;font-size:.9rem;}
+.hero h1{font-size:2.1rem;margin:6px 0 4px;}
+.hero h1 em{font-style:italic;}
+.hero .subtitle{font-size:1.2rem;font-weight:700;opacity:.95;margin:0 0 18px;}
+.hero p.lede{max-width:56ch;margin:0 auto 22px;line-height:1.7;font-weight:600;opacity:.95;}
+.hero .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px;}
+.toc-card{
+  display:block;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;
+  border:1px solid #E4EBEE;color:var(--ink);
+}
+.toc-card:hover{border-color:var(--sky-bright);}
+.toc-card .n{font-family:'Baloo 2';color:var(--sky-deep);font-weight:700;font-size:.85rem;}
+.toc-card .t{font-weight:800;margin-top:2px;}
+
+button, a.btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:999px;padding:12px 26px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
+  text-decoration:none;display:inline-block;
+}
+a.btn.secondary{background:transparent;color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.7);}
+
+/* chapter reading page */
+.chapter-text{font-size:1.08rem;line-height:1.75;}
+.chapter-text p{margin:0 0 14px;}
+.chapter-text p:last-child{margin-bottom:0;}
+.chapter-text img.chapter-illustration{width:100%;height:auto;border-radius:12px;margin:16px 0;border:1px solid #E4EBEE;display:block;}
+.chapter-text hr.scene-break{border:none;text-align:center;margin:22px 0;height:1.2em;color:var(--sky-bright);font-size:1.1rem;letter-spacing:10px;}
+.chapter-text hr.scene-break::before{content:"\2022 \2022 \2022";}
+.chapter-text blockquote{margin:16px 8px;padding:12px 18px;border-left:4px solid var(--sun-gold);background:#FCF6E8;border-radius:0 10px 10px 0;font-style:italic;font-weight:700;color:#5C4419;}
+
+.chapternav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.chapternav a{
+  flex:1;min-width:140px;text-decoration:none;background:#fff;border:1px solid #E4EBEE;
+  border-radius:14px;padding:12px 16px;color:var(--ink);
+}
+.chapternav a:hover{border-color:var(--sky-bright);}
+.chapternav .dir{font-size:.75rem;font-weight:800;color:var(--leaf-teal);}
+.chapternav .lbl{font-weight:800;}
+.chapternav a.next{text-align:right;}
+
+.quiz-cta{
+  margin-top:20px;background:linear-gradient(180deg,#FFF6E4,#FCEFD6);
+  border:2px solid var(--sun-gold);border-radius:18px;padding:20px 22px;text-align:center;
+}
+.quiz-cta h3{margin:0 0 6px;color:#7A4A0A;}
+.quiz-cta p{margin:0 0 14px;font-weight:700;color:#8A5B18;}
+
+footer.note{text-align:center;color:#E7F1F5;font-size:.78rem;margin-top:26px;line-height:1.6;}
+footer.note a{color:#fff;font-weight:700;}
+
+@media (max-width:480px){
+  header.site{flex-direction:column;align-items:flex-start;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="../index.html">🦅 The Eyes of the Eagle</a>
+  <nav>
+    <a href="../index.html">Read the Book</a>
+    <a class="quiz" href="../quiz.html">🎮 Reading Quest Game</a>
+  </nav>
+</header>
+
+<div class="panel">
+  <p class="eyebrow">CHAPTER 07 OF 12</p>
+  <h1 style="margin:0 0 16px;color:var(--sky-deep);">My Master Was Crucified</h1>
+  <div class="chapter-text">
+    <img class="chapter-illustration" src="../images/ch07/ch07_fig1.jpg" alt="Illustration for Chapter 7" loading="lazy">
+<p>The night wind was quiet.</p>
+<p>My companions and I stood upon the branches of the trees. We heard Jesus and His disciples enter the garden. Jesus walked ahead of them, then knelt beside a stone. Tears streamed down His face as He prayed:</p>
+<p>“Father, if You are willing, take this cup from Me. Yet not My will, but Yours be done.”</p>
+<p>My Master’s fingers gripped the stone tightly. His body was bowed low. His sweat and tears mingled together. The sound of His prayer carried clearly through the silent garden. The birds in the trees and all of us could hear Him. But His disciples were sleeping in the distance.</p>
+<p>I had never seen my Master like this. He had once stood in the midst of wind and waves, and both had obeyed Him. He had healed the sick with a single word.</p>
+<p>But that night, He knelt trembling upon the ground. His face was covered with tears. I did not understand. Why would a Master who could command the wind and the sea tremble upon a stone? I felt that something terrible was about to happen.</p>
+<img class="chapter-illustration" src="../images/ch07/ch07_fig2.jpg" alt="Illustration for Chapter 7" loading="lazy">
+<p>From the darkness in the distance came the noisy voices of men and a great glow of fire. Torch after torch appeared along the mountain path, slowly drawing closer. The owls and birds of the forest saw the shouting men and the flames and quickly flew away. I saw metal flashing in the firelight. They were carrying swords.</p>
+<p>One of my Master’s disciples was named Judas. He was the one who came with them, leading a crowd carrying torches. When the other disciples realized that they had come to arrest Jesus—and perhaps them as well—they all ran away.</p>
+<p>Judas kissed Jesus. I heard my Master ask him: “Judas, are you betraying the Son of Man with a kiss?”</p>
+<p>Then they bound Jesus. Their torches formed a river of fire in the night as they led Him toward the town. There, the crowd pushed Jesus into a large courtyard, where they began to put Him on trial.</p>
+<hr class="scene-break">
+<p>I actually liked the rules of human courts. Humans used courts to settle disputes. Their courts had reasons and order. They were not like us eagles, who sometimes settle our disputes by fighting until one of us is dead.</p>
+<p>In a human court, people took turns speaking. Even a wicked man accused of a crime was given an opportunity to answer. During a trial, no one was supposed to beat the accused.</p>
+<p>I had once tried to persuade my eagle companions that we should establish a court among ourselves. But none of us eagles knew what to do next. I thought perhaps we needed scholars who had spent many years studying, just as humans did.</p>
+<p>But that night was different. The one standing trial was Jesus, their Teacher. He stood before a gathering of learned men, His face exhausted. A gust of wind came through the night. I spread my wings and let it carry me in a wide circle above the courtyard so I could hear what they were saying.</p>
+<p>That night, one person after another spoke. Some made accusations. Some shouted. Some had already nodded to one another before Jesus had even answered. I could not understand why they were in such a hurry to condemn a man. Should they not listen first? These learned men questioned Him while mocking Him at the same time.</p>
+<p>Jesus said very little.</p>
+<p>The charge against Him was that He claimed to be the Son of God, the Christ.</p>
+<p>He answered almost nothing. Only when they asked Him whether He was the Son of God did He speak.</p>
+<p>My Lord, why are You silent?</p>
+<p>You are like a lamb led to the slaughter, silent before those who would kill You. I have seen ravens fighting over the blood of sheep at the slaughterhouse.</p>
+<p>You who judge Him, do you not see? How did He teach the people? Did they not love Him? How many among you have listened to His teaching? His words were like a lamp for the path, shining within your hearts. How can you welcome Him in the daylight and condemn Him at night? If what He says is false, this will pass away on its own. You do not need to do anything to Him. But if what He says is true, why do you reject Him?</p>
+<p>After a night filled with accusations, those learned men sentenced Jesus to death. At the moment the sentence was pronounced, the wind stopped. I almost fell from the sky.</p>
+<p>I cried.</p>
+<img class="chapter-illustration" src="../images/ch07/ch07_fig3.jpg" alt="Illustration for Chapter 7" loading="lazy">
+<p>For the first time, I learned that human beings did not always need swords to fight. They could also kill a man with lies, power, and a judgment. A war without swords could tear at my heart just as deeply.</p>
+<p>Those learned men did not have the authority to carry out a death sentence, so they had to hand Jesus over to the Roman governor and his soldiers. They all agreed that He should be taken to their governor as quickly as possible.</p>
+<p>At daybreak, they bound Jesus and brought Him to their governor, Pilate.</p>
+<hr class="scene-break">
+<p>As I circled above the city, I suddenly saw Judas, the one who had betrayed his Teacher. He stood alone beneath a tree, his head bowed, his heart filled with grief and regret. He went to the learned men who had accused Jesus. He wanted to return the bag of money they had given him, but they would not take it.</p>
+<p>I did not understand. He had followed my Master. He had walked with Him from place to place. Why, in the end, had he betrayed Him? Judas threw the money into the temple. The coins scattered across the floor. Then he went outside the city and hanged himself beneath a tree.</p>
+<p>The next morning, as the first light of dawn had barely risen above the city walls, the streets were already growing noisy. I circled high above the city and saw crowds gathering in the square before the governor’s headquarters. Some hurried in from the city. Some stood along the roads, watching. Others walked while loudly discussing everything that had happened the night before. More and more people arrived.</p>
+<img class="chapter-illustration" src="../images/ch07/ch07_fig4.jpg" alt="Illustration for Chapter 7" loading="lazy">
+<p>From above, I saw that the square was already filled with people. When we eagles want to watch a fight, only a few of us need to gather. But humans are different. They like to gather together until their voices become louder than any one voice could ever be. I heard people shouting. I saw them pointing toward the center of the square. Roman soldiers stood all around them, weapons in their hands.</p>
+<p>Then I saw my Master.</p>
+<p>The soldiers brought Him out. I knew they must have beaten Him. There were bloodstains and marks across His body.</p>
+<p>Beside Him stood another man who had also been brought out under guard. I had heard his name before.</p>
+<p>Barabbas.</p>
+<p>He was a robber, a man who had committed crimes. I looked at him.</p>
+<p>Then I looked at my Master. The crowd grew louder and more agitated.</p>
+<p>I saw a great black cloud above Barabbas’s head. It was heavier than any dark cloud I had ever seen before.</p>
+<p>Then I looked at the Lord Jesus. He said nothing. His countenance seemed to shine above the square.</p>
+<p>My Lord, why are You silent?</p>
+<p>The governor told the crowd that he had the authority to release one prisoner. He asked them whether they wanted him to release this robber, or Jesus—the One who had taught them and whom they had once loved.</p>
+<p>The crowd shouted:</p>
+<p>“Barabbas!”</p>
+<p>The wicked man Barabbas walked proudly into the crowd and disappeared. The black cloud followed him.</p>
+<p>Pilate asked what should be done with Jesus. The crowd shouted:</p>
+<p>“Crucify Him!”</p>
+<p>“Crucify Him!”</p>
+<p>Their cries echoed throughout the city and frightened every bird that had been resting in its nest. We all flew away.</p>
+<p>We old eagles had often flown over the hill outside the city where men were crucified. We had seen how the Roman soldiers carried out their executions. Before a crucifixion, the soldiers stripped the condemned man of all his clothing, even his undergarments. The bodies hanging naked upon the crosses made it easier for ravens and vultures to tear at their flesh. The smell of blood was always there. Ravens and vultures were always circling overhead. But I had never imagined that one day my own Master would hang there. Then I understood something. The men hanging upon those pieces of wood had once been loved by someone. And today, the One who would hang there was my Master.</p>
+<p>The Roman soldiers forced my Master to carry His cross. It was taller than He was, and He could no longer carry it.</p>
+<p>They came to the top of the hill. The soldiers mocked my Master. They twisted together a crown of thorns and placed it upon His head.</p>
+<p>The thorns pierced His skin. Blood ran down His face and blurred His vision. The soldiers stretched out my Master’s hands and drove nails through them into the wood. Then they raised the cross.</p>
+<p>Two other criminals were crucified beside Him. One of them was so heavy that, when his body hung from the cross, the bones in his hands tore under the weight.</p>
+<p>The pain was so terrible that he endured it while continually cursing God.</p>
+<p>But the other criminal rebuked him.</p>
+<p>“Do you not fear God? We are receiving what we deserve. But this man has done nothing wrong.”</p>
+<p>Then, with the little strength remaining in him, he spoke to my Master from the cross, his voice weak and sorrowful:</p>
+<p>“Jesus, remember me when You come into Your kingdom.”</p>
+<p>I heard my Master answer him:</p>
+<p>“Truly I tell you, today you will be with Me in paradise.”</p>
+<p>I lifted my eyes toward the heavens. I saw countless hosts of angels. Their faces were solemn as they watched what was happening below. Without my Master’s command, they waited. At His single word, they could descend from heaven in an instant.</p>
+<p>My Lord, why are You silent?</p>
+<p>You could command the armies of angels—and we warriors of the sky—to rescue You from these hateful humans.</p>
+<p>My Lord, why do You not command us? If You commanded me, I would fly down this very moment. I could seize those soldiers with my talons. I could drive them all away with my wings. All of us eagles could descend together. We could fill the entire hilltop with wings. The armies of angels could easily lift You down from the cross and restore You to Your glorious and majestic throne.</p>
+<p>My Lord, why do You allow these humans to shame You?</p>
+<p>My companions and I circled above the hill, crying out. Whenever ravens or vultures came near Your cross, we drove them away with our cries. We would not allow them to touch You.</p>
+<p>In the afternoon, darkness suddenly fell.</p>
+<p>The whole earth grew dark. I heard my Master say:</p>
+<p>“My God, My God, why have You forsaken Me?”</p>
+<p>I looked at Him. He said nothing more. His head bowed. Then He breathed His last. My Master was dead.</p>
+<p>Suddenly, the earth shook violently. In the distance, great stones broke loose from the cliffs and crashed down. Birds burst into the air. Deer fled into the forest. Every creature beneath the earth hid in fear.</p>
+<p>The soldiers cried out in terror:</p>
+<p>“Surely He was the Son of God!”</p>
+<p>The Roman officer named Centurion beat his chest and wept bitterly.</p>
+<p>“I have killed my Teacher and the Son of God,” he cried.</p>
+<p>“Why did I not have the courage to refuse the command of my commander?”</p>
+<p>“I should have risked my life for a good man. Why did I not?”</p>
+<p>I had seen Centurion before. When my Master taught, he had listened with excitement and seriousness. There had been fire in his heart. There had been light above his head. But now his face was covered with tears. He stood beneath the cross and wept.</p>
+<p>Centurion, it is too late to weep now.</p>
+<p>My Master is dead. I grieved with you.</p>
+<p>The owl’s brow was deeply furrowed.</p>
+<p>The eagles’ beaks were tightly closed.</p>
+<p>Our Lord hung beneath the crown of thorns, the cruel crown covering His suffering brow.</p>
+<p>This was a knot we could not understand.</p>
+<p>A knot that would become part of history.</p>
+<p>Our hearts could not be still.</p>
+<img class="chapter-illustration" src="../images/ch07/ch07_fig5.jpg" alt="Illustration for Chapter 7" loading="lazy">
+  </div>
+</div>
+
+<div class="quiz-cta">
+  <h3>🌟 Finished this chapter?</h3>
+  <p>Log in to the Reading Quest and answer three questions about "My Master Was Crucified" to earn stars and points!</p>
+  <a class="btn" href="../quiz.html?ch=7">Take the Chapter 7 Quiz</a>
+</div>
+
+<div class="chapternav">
+  <a class="prev" href="chapter-06.html"><div class="dir">&larr; Previous</div><div class="lbl">Strange Humans</div></a>
+  <a class="next" href="chapter-08.html"><div class="dir">Next &rarr;</div><div class="lbl">He Rose from the Dead</div></a>
+</div>
+<footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
+</div>
+</body>
+</html>

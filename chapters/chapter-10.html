@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephen Is Stoned to Death — Chapter 10 of 12 — The Eyes of the Eagle</title>
+<meta name="description" content="An illustrated retelling of the life of Jesus, seen through the eyes of a bald eagle over Galilee — by Chris Kuo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-deep:#1B4B66; --sky-bright:#3E86A0; --sun-gold:#F2A93B;
+  --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
+  background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;}
+a{color:inherit;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;margin-bottom:18px;flex-wrap:wrap;gap:10px;
+}
+header.site a.brand{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;text-decoration:none;color:#fff;}
+header.site nav a{
+  color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+  background:rgba(10,30,40,.28);border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 16px;margin-left:8px;display:inline-block;
+}
+header.site nav a.quiz{background:var(--sun-gold);color:#4A2E00;border:none;}
+
+.panel{background:var(--cloud);border-radius:24px;padding:28px 26px 24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
+.panel + .panel{margin-top:18px;}
+.eyebrow{font-weight:800;color:var(--leaf-teal);font-size:.78rem;letter-spacing:.4px;margin:0 0 6px;}
+
+/* hero (landing page only) */
+.hero{text-align:center;color:#fff;padding:30px 10px 10px;}
+.hero .by{font-weight:700;opacity:.85;font-size:.9rem;}
+.hero h1{font-size:2.1rem;margin:6px 0 4px;}
+.hero h1 em{font-style:italic;}
+.hero .subtitle{font-size:1.2rem;font-weight:700;opacity:.95;margin:0 0 18px;}
+.hero p.lede{max-width:56ch;margin:0 auto 22px;line-height:1.7;font-weight:600;opacity:.95;}
+.hero .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px;}
+.toc-card{
+  display:block;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;
+  border:1px solid #E4EBEE;color:var(--ink);
+}
+.toc-card:hover{border-color:var(--sky-bright);}
+.toc-card .n{font-family:'Baloo 2';color:var(--sky-deep);font-weight:700;font-size:.85rem;}
+.toc-card .t{font-weight:800;margin-top:2px;}
+
+button, a.btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:999px;padding:12px 26px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
+  text-decoration:none;display:inline-block;
+}
+a.btn.secondary{background:transparent;color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.7);}
+
+/* chapter reading page */
+.chapter-text{font-size:1.08rem;line-height:1.75;}
+.chapter-text p{margin:0 0 14px;}
+.chapter-text p:last-child{margin-bottom:0;}
+.chapter-text img.chapter-illustration{width:100%;height:auto;border-radius:12px;margin:16px 0;border:1px solid #E4EBEE;display:block;}
+.chapter-text hr.scene-break{border:none;text-align:center;margin:22px 0;height:1.2em;color:var(--sky-bright);font-size:1.1rem;letter-spacing:10px;}
+.chapter-text hr.scene-break::before{content:"\2022 \2022 \2022";}
+.chapter-text blockquote{margin:16px 8px;padding:12px 18px;border-left:4px solid var(--sun-gold);background:#FCF6E8;border-radius:0 10px 10px 0;font-style:italic;font-weight:700;color:#5C4419;}
+
+.chapternav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.chapternav a{
+  flex:1;min-width:140px;text-decoration:none;background:#fff;border:1px solid #E4EBEE;
+  border-radius:14px;padding:12px 16px;color:var(--ink);
+}
+.chapternav a:hover{border-color:var(--sky-bright);}
+.chapternav .dir{font-size:.75rem;font-weight:800;color:var(--leaf-teal);}
+.chapternav .lbl{font-weight:800;}
+.chapternav a.next{text-align:right;}
+
+.quiz-cta{
+  margin-top:20px;background:linear-gradient(180deg,#FFF6E4,#FCEFD6);
+  border:2px solid var(--sun-gold);border-radius:18px;padding:20px 22px;text-align:center;
+}
+.quiz-cta h3{margin:0 0 6px;color:#7A4A0A;}
+.quiz-cta p{margin:0 0 14px;font-weight:700;color:#8A5B18;}
+
+footer.note{text-align:center;color:#E7F1F5;font-size:.78rem;margin-top:26px;line-height:1.6;}
+footer.note a{color:#fff;font-weight:700;}
+
+@media (max-width:480px){
+  header.site{flex-direction:column;align-items:flex-start;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="../index.html">🦅 The Eyes of the Eagle</a>
+  <nav>
+    <a href="../index.html">Read the Book</a>
+    <a class="quiz" href="../quiz.html">🎮 Reading Quest Game</a>
+  </nav>
+</header>
+
+<div class="panel">
+  <p class="eyebrow">CHAPTER 10 OF 12</p>
+  <h1 style="margin:0 0 16px;color:var(--sky-deep);">Stephen Is Stoned to Death</h1>
+  <div class="chapter-text">
+    <img class="chapter-illustration" src="../images/ch10/ch10_fig1.jpg" alt="Illustration for Chapter 10" loading="lazy">
+<p>That day, I flew across the familiar sky and along the cliffs above the sea. I missed my teacher. I missed my Golden Eagle companions. It was about the time they would be returning. Would they come back? Would I see them again? I had so many things to tell them. So many things I had seen.</p>
+<p>My Golden Eagle teacher had taught me how to see what mortal eyes cannot see. He told me that an eagle's eyes were not merely for seeing farther. They were for seeing the glory the Creator wanted us to see.</p>
+<p>Now I could see it.</p>
+<p>True glory was Him.</p>
+<p>Words of life came from His mouth.</p>
+<p>His words were like light, entering the hearts of people.</p>
+<p>He was tortured by the very people He loved. He was humiliated in the marketplace. Yet even when His body was covered with wounds, His dignity still shone.</p>
+<p>That was true glory.</p>
+<p>My Master.</p>
+<hr class="scene-break">
+<p>Suddenly, I saw a light in the distant sky. I opened my eyes wide. At the center of the light, the shape of a Golden Eagle slowly appeared. It was my teacher. And beside him was an angel.</p>
+<p>My teacher! I had so much to tell you. It would take many days to tell it all. I was even worried that I would speak too slowly, or that I would not find the right words. For years, I had practiced the moment when we would meet again. I was afraid that if I could not tell my stories well, you would not understand them.</p>
+<p>But at that very moment, my Golden Eagle teacher looked into my eyes. I looked into his.</p>
+<p>And in that instant, it seemed that he already knew every word I had wanted to say, every story I had wanted to tell, every thing I had seen during all those years. At that moment, I realized that words were unnecessary. We said nothing. We simply flew together, circling in the sky.</p>
+<p>My teacher! I wished that moment could last forever. That you and I, together with the others, could keep flying all the way to the sunset at the edge of the world.</p>
+<img class="chapter-illustration" src="../images/ch10/ch10_fig2.jpg" alt="Illustration for Chapter 10" loading="lazy">
+<hr class="scene-break">
+<p>Suddenly, I heard the voice of the angel. It carried the strength of the whole sky. He called to me:</p>
+<p>“Go. Carry Stephen to the throne in heaven.”</p>
+<p>I did not know who Stephen was. I did not know what was happening below. But I knew this was my Master's command. So I spread my wings and followed the angel downward. We descended from the sky.</p>
+<p>I saw several learned men leading an angry mob toward the center of the city. They were accusing a man named Stephen.</p>
+<p>Their voices were too far away for me to understand clearly, but the wind heard everything. The wind often told me things it heard along the way. Sometimes I heard the wind sighing over humanity.</p>
+<p>I heard farmers speaking of Stephen— of his noble character, and of all he had done for ordinary people. The farmers loved Stephen because he cared for them and taught them.</p>
+<p>Then I saw three gray, shadowy frogs slipping through the angry crowd. I had a terrible feeling about them. The last time I had seen them, they had been hiding beneath a dead hen, trying to escape the vultures.</p>
+<p>They were the lying frogs.</p>
+<p>The wind had heard those three frogs spreading rumors about Stephen, claiming that he had spoken against their ancestors, against the Creator, and against many other things.</p>
+<p>The mob moved toward Stephen.</p>
+<p>Stephen raised his voice, trying to calm them.</p>
+<p>The learned leaders told the crowd to be silent for a moment and gave Stephen one last opportunity to speak. The silence that followed was like the silence of vultures waiting before they descend upon their prey.</p>
+<p>I saw Stephen standing in the middle of the dark, angry crowd. Above his head, he seemed to shine like a diamond.</p>
+<p>Stephen began to speak. He started with a story from long ago. He spoke of Abraham. Of Joseph. Of Moses. Of how the people of Israel came out of Egypt. He spoke of how God had continually led His people, and how the human heart had repeatedly rejected Him. And finally, he spoke of my Master. He said that human beings had handed over the Righteous One to be killed. The people grew more and more furious as they listened. When Stephen finished speaking, they began throwing stones at him. Stone after stone fell upon him until Stephen disappeared beneath the heap.</p>
+<p>I dove toward him at once. I reached him just before his body fell. I heard Stephen say:</p>
+<p>“Lord Jesus, receive my spirit.”</p>
+<p>Then his spirit left his body. I flew above Stephen and carefully grasped his spirit in my talons. I spread my wings around him to protect him. I held him as gently and firmly as I could, careful not to let my sharp talons wound him. Then I beat my wings with all my strength and rose from the earth. I followed the direction the angel had shown me and flew toward the throne in heaven. It was the fastest, hardest flight of my entire life.</p>
+<p>His clothing fluttered in the wind. His eyes were closed. He curled himself inward and whispered:</p>
+<p>“Lord, do not hold this sin against them.”</p>
+<p>Then he fell asleep.</p>
+<img class="chapter-illustration" src="../images/ch10/ch10_fig3.jpg" alt="Illustration for Chapter 10" loading="lazy">
+<p>At last, I saw the dawn, the sea of glass, and the throne in heaven. At the center, before the sea of glass, a place had already been prepared for Stephen.</p>
+<p>I descended gently and carefully laid him down.</p>
+<p>Then I heard the thunderous applause of heaven. I saw my Master rise. He looked at Stephen and said:</p>
+<p>“Well done, good and faithful servant. You have been faithful over a little on earth; I will set you over much. Come and share in the joy of your Master.”</p>
+<p>Then my Master looked at me.</p>
+<p>My face felt hot, because His eyes seemed to see straight through me. I could not speak. All I could manage was an awkward little:</p>
+<p>“Ah!”</p>
+<p>It was a very embarrassing moment to make such a sound in front of my Master.</p>
+<p>But my Master knew how hard I had worked to bring Stephen there.</p>
+<p>My Master knew.</p>
+<p>Then the applause of heaven turned toward me. They applauded the care with which I had carried Stephen and gently laid him down. I heard the angels saying:</p>
+<p>“Look at that strong eagle!”</p>
+<p>How had I become a strong eagle? Then I noticed that my feathers and tail feathers were shining. My wings were no longer mottled. I had grown into a true eagle.</p>
+<p>Only then did I realize that I had just carried a great and faithful servant of the Lord.</p>
+<p>I flew joyfully across the sky, from east to west.</p>
+<p>My spirit was glad.</p>
+<p>My will was strong.</p>
+<p>The whole sky seemed to belong to me.</p>
+<p>I flew through the storm.</p>
+<p>My eagle talons had become strong as steel.</p>
+<p>With my mortal eyes, I could see the little creatures far below.</p>
+<p>With my eagle eyes, I could discern the clouds of good and evil.</p>
+<p>I was a masterpiece of the Creator.</p>
+<p>I was an eagle who served my Lord.</p>
+  </div>
+</div>
+
+<div class="quiz-cta">
+  <h3>🌟 Finished this chapter?</h3>
+  <p>Log in to the Reading Quest and answer three questions about "Stephen Is Stoned to Death" to earn stars and points!</p>
+  <a class="btn" href="../quiz.html?ch=10">Take the Chapter 10 Quiz</a>
+</div>
+
+<div class="chapternav">
+  <a class="prev" href="chapter-09.html"><div class="dir">&larr; Previous</div><div class="lbl">Centurion's Change</div></a>
+  <a class="next" href="chapter-11.html"><div class="dir">Next &rarr;</div><div class="lbl">Walk With Him Two Miles</div></a>
+</div>
+<footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
+</div>
+</body>
+</html>

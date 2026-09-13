@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiritual Vision — Chapter 01 of 12 — The Eyes of the Eagle</title>
+<meta name="description" content="An illustrated retelling of the life of Jesus, seen through the eyes of a bald eagle over Galilee — by Chris Kuo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-deep:#1B4B66; --sky-bright:#3E86A0; --sun-gold:#F2A93B;
+  --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
+  background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;}
+a{color:inherit;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;margin-bottom:18px;flex-wrap:wrap;gap:10px;
+}
+header.site a.brand{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;text-decoration:none;color:#fff;}
+header.site nav a{
+  color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+  background:rgba(10,30,40,.28);border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 16px;margin-left:8px;display:inline-block;
+}
+header.site nav a.quiz{background:var(--sun-gold);color:#4A2E00;border:none;}
+
+.panel{background:var(--cloud);border-radius:24px;padding:28px 26px 24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
+.panel + .panel{margin-top:18px;}
+.eyebrow{font-weight:800;color:var(--leaf-teal);font-size:.78rem;letter-spacing:.4px;margin:0 0 6px;}
+
+/* hero (landing page only) */
+.hero{text-align:center;color:#fff;padding:30px 10px 10px;}
+.hero .by{font-weight:700;opacity:.85;font-size:.9rem;}
+.hero h1{font-size:2.1rem;margin:6px 0 4px;}
+.hero h1 em{font-style:italic;}
+.hero .subtitle{font-size:1.2rem;font-weight:700;opacity:.95;margin:0 0 18px;}
+.hero p.lede{max-width:56ch;margin:0 auto 22px;line-height:1.7;font-weight:600;opacity:.95;}
+.hero .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px;}
+.toc-card{
+  display:block;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;
+  border:1px solid #E4EBEE;color:var(--ink);
+}
+.toc-card:hover{border-color:var(--sky-bright);}
+.toc-card .n{font-family:'Baloo 2';color:var(--sky-deep);font-weight:700;font-size:.85rem;}
+.toc-card .t{font-weight:800;margin-top:2px;}
+
+button, a.btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:999px;padding:12px 26px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
+  text-decoration:none;display:inline-block;
+}
+a.btn.secondary{background:transparent;color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.7);}
+
+/* chapter reading page */
+.chapter-text{font-size:1.08rem;line-height:1.75;}
+.chapter-text p{margin:0 0 14px;}
+.chapter-text p:last-child{margin-bottom:0;}
+.chapter-text img.chapter-illustration{width:100%;height:auto;border-radius:12px;margin:16px 0;border:1px solid #E4EBEE;display:block;}
+.chapter-text hr.scene-break{border:none;text-align:center;margin:22px 0;height:1.2em;color:var(--sky-bright);font-size:1.1rem;letter-spacing:10px;}
+.chapter-text hr.scene-break::before{content:"\2022 \2022 \2022";}
+.chapter-text blockquote{margin:16px 8px;padding:12px 18px;border-left:4px solid var(--sun-gold);background:#FCF6E8;border-radius:0 10px 10px 0;font-style:italic;font-weight:700;color:#5C4419;}
+
+.chapternav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.chapternav a{
+  flex:1;min-width:140px;text-decoration:none;background:#fff;border:1px solid #E4EBEE;
+  border-radius:14px;padding:12px 16px;color:var(--ink);
+}
+.chapternav a:hover{border-color:var(--sky-bright);}
+.chapternav .dir{font-size:.75rem;font-weight:800;color:var(--leaf-teal);}
+.chapternav .lbl{font-weight:800;}
+.chapternav a.next{text-align:right;}
+
+.quiz-cta{
+  margin-top:20px;background:linear-gradient(180deg,#FFF6E4,#FCEFD6);
+  border:2px solid var(--sun-gold);border-radius:18px;padding:20px 22px;text-align:center;
+}
+.quiz-cta h3{margin:0 0 6px;color:#7A4A0A;}
+.quiz-cta p{margin:0 0 14px;font-weight:700;color:#8A5B18;}
+
+footer.note{text-align:center;color:#E7F1F5;font-size:.78rem;margin-top:26px;line-height:1.6;}
+footer.note a{color:#fff;font-weight:700;}
+
+@media (max-width:480px){
+  header.site{flex-direction:column;align-items:flex-start;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="../index.html">🦅 The Eyes of the Eagle</a>
+  <nav>
+    <a href="../index.html">Read the Book</a>
+    <a class="quiz" href="../quiz.html">🎮 Reading Quest Game</a>
+  </nav>
+</header>
+
+<div class="panel">
+  <p class="eyebrow">CHAPTER 01 OF 12</p>
+  <h1 style="margin:0 0 16px;color:var(--sky-deep);">Spiritual Vision</h1>
+  <div class="chapter-text">
+    <img class="chapter-illustration" src="../images/ch01/ch01_fig1.jpg" alt="Illustration for Chapter 1" loading="lazy">
+<p>Among the cliffs and coves where we lived, there were many gulls and all manner of seabirds.</p>
+<p>At dusk, the setting sun would turn the steep rock walls a deep orange-red. Sea winds swept through the trees and shrubs along the cliffs, year after year, never ceasing. Because of this, the trees grew unusually strong. Their trunks and branches bent in the direction of the wind, yet they never fell.</p>
+<p>In the great trees along the cliff's edge, the eagles built their nests. Massive nests were formed from layer upon layer of thick branches, firmly lodged among the high branches of the trees. Inside, the young eaglets were soft and downy, always stretching their open beaks toward the sky and crying out in thin, eager voices, waiting for their parents to return from the sea with food. The father and mother eagles took turns flying out to hunt, then returning to the nest with their catch.</p>
+<p>The bald eagles of our region migrated south when winter came and returned north when summer arrived. To us, the earth and sea were a home that stretched far before us.</p>
+<hr class="scene-break">
+<p>That summer, I was no longer a young eaglet. White feathers had begun to appear upon my head, and my talons had grown stronger than before. I loved climbing into the highest places and looking down upon the land and sea. I loved watching everything that was happening below.</p>
+<p>Sometimes I would see a great blue whale break through the surface of the sea, sending a plume of warm breath high into the air through its enormous blowhole. The schools of fish nearby would scatter in alarm, some of them leaping from the water. Gulls, Arctic terns, albatrosses, storm petrels, and other seabirds were often drawn to the commotion caused by these great creatures. We would circle above them, chasing the wind, chasing the waves, and chasing one another.</p>
+<img class="chapter-illustration" src="../images/ch01/ch01_fig2.jpg" alt="Illustration for Chapter 1" loading="lazy">
+<p>When the sun went down, we would each return to our nests upon the cliffs. The rock walls would bathe in the last glow of evening, while the blue whales disappeared once more into the depths of the sea.</p>
+<p>In those days, there was one thing I loved more than anything else: flying.</p>
+<p>We eagles have extraordinarily keen eyes. From high above, I could see rabbits running across the ground, little squirrels darting among the trees, and even snakes hiding in the grass. Our sight was sharper than that of many other creatures, and diving from the sky to seize our prey was a skill that came to us almost as naturally as flight itself.</p>
+<p>But there was one thing I could never seem to do well.</p>
+<p>It was <strong>catching fish.</strong></p>
+<p>Fish moved beneath the glittering surface of the water. Sunlight pierced the waves, and their shapes appeared and disappeared among the shifting reflections. Whenever I thought I had fixed my eyes upon the right one, I would dive, stretch out my talons—and the fish would already be somewhere else.</p>
+<p>Again and again, I failed.</p>
+<hr class="scene-break">
+<p>The eyes of an eagle may see far, but that does not mean an eagle always sees a fish clearly beneath the water. In those days, I was still learning.</p>
+<p>One afternoon, the heat was heavy, and almost no wind stirred the air. I had spent the entire day practicing. I watched the surface of the sea and dove again and again; again and again I stretched out my talons; again and again I grasped nothing but water.</p>
+<p>At last, I was exhausted.</p>
+<p>I settled onto a branch, breathing heavily, and stared out over the sea.</p>
+<p>That was when I noticed a group of golden eagles resting on the other side of the cliffs. They were preparing to continue their migration south.</p>
+<p>Leading them was an old golden eagle.</p>
+<p>He was quiet and watchful, a bird who spoke very little.</p>
+<p>But before long, I realized that he was watching me.</p>
+<p>After a while, he spoke.</p>
+<p>“You must learn to look upward.”</p>
+<p>“What?” I lifted my head.</p>
+<p>He did not answer my question. Instead, he said,</p>
+<p>“Try looking upward. You will see farther, and you will see more clearly.”</p>
+<p>“I already know that. My parents taught me from the time I was young to keep watch over everything around me.”</p>
+<p>I spoke with a touch of impatience.</p>
+<p>The golden eagle did not argue. He simply raised his head and gazed into the distance. Then he pointed with his beak.</p>
+<p>“Look at that little island.”</p>
+<p>I followed his gaze.</p>
+<p>The island was far away. A gull stood upon the rocks, a snake hanging from its beak. The snake was still flicking its tongue.</p>
+<p>I was surprised. It was so far away, yet I could see it.</p>
+<p>The golden eagle said,</p>
+<p>“Do not look at the world with the light behind you. Learn to see the world through the light.”</p>
+<p>I looked at him.</p>
+<p>“Through the light?”</p>
+<p>“Yes.” He paused, then continued. “When you used to watch the fish, you paid attention only to where it was.”</p>
+<p>He turned his gaze toward the sea.</p>
+<p>“But the fish will not wait there for you.”</p>
+<p>“When you begin your dive, the fish is still moving. You must watch the direction in which it is swimming and judge its speed. You must see, in your mind, where it will be before it arrives there.”</p>
+<p>Slowly, I began to understand.</p>
+<p>He continued: “When you finally extend your talons, it is not enough to see where the fish is. You must know where it is going.”</p>
+<p>“But how can I know where it will go?” I asked.</p>
+<p>“You must observe,” he replied.</p>
+<p>“Watch how it swims. Watch how the current moves. Watch the direction it takes among the waves. You are not merely watching where it is. You are watching where it is going.”</p>
+<p>Then he added, “True vision is not merely seeing a thing.” He paused. “It is seeing what is happening within it.”</p>
+<p>I remembered those words.</p>
+<p>I flew toward the sea again. This time, I did not dive immediately.</p>
+<p>First, I watched. The fish swam to the left, paused, and then turned forward. I began to notice the rhythm of its movement, the speed at which it traveled.</p>
+<p>Then I opened my wings. I dove. The sea wind rushed through my feathers. The fish was still moving. I adjusted my course and descended farther. I stretched out my talons. And in that instant, I caught it.</p>
+<img class="chapter-illustration" src="../images/ch01/ch01_fig3.jpg" alt="Illustration for Chapter 1" loading="lazy">
+<p>For the first time, I truly caught a fish.</p>
+<p>I flew back to the branch. Only then did I understand that seeing and understanding are two different things.</p>
+<p>I was full. But more important than a full stomach was a joy I had never known before.</p>
+<p>I looked toward the old golden eagle. I began to understand that he was more than a fellow traveler on the migration.</p>
+<p>He was a teacher.</p>
+<hr class="scene-break">
+<p>The next day, I encountered something else. A fox was chasing a mother mouse and her two little ones.</p>
+<p>I watched from above. The fox was large. The mother mouse was small. The two little mice were smaller still. I quickly realized that if I could not catch the fox, the two little mice would be easy prey. I was preparing to dive when the golden eagle stopped me.</p>
+<p>“Are you going to catch those two little mice?”</p>
+<p>“Of course.” I did not understand. “Why not?”</p>
+<p>He said, “Have you not seen?”</p>
+<p>I looked down again. “Seen what?”</p>
+<p>“The mother mouse.”</p>
+<p>I saw her. She was standing between the fox and her young.</p>
+<p>The golden eagle said, “She knows she may die, yet she still stands between them and danger.”</p>
+<p>I fell silent.</p>
+<p>“She is willing to give her life to protect her children.”</p>
+<p>After a while, the golden eagle asked, “Do you remember what I taught you yesterday?”</p>
+<p>I knew what he meant.</p>
+<p>“Look upward?”</p>
+<p>“Yes.”</p>
+<p>I was unconvinced. “But what does that have to do with the mice?”</p>
+<p>The golden eagle did not rebuke me. He simply said, “When you look at anything, do not look only at what is on the surface.”</p>
+<p>He lifted his head toward the sky. “Learn to see through the light.”</p>
+<p>For me, this was far more difficult than catching fish. I did not know how to do it.</p>
+<p>I followed his instruction. I shifted my position so that the sunlight fell from above, and then I looked down again.</p>
+<p>The fox. The mother mouse. The two little mice.</p>
+<p>At first, I saw nothing different. But the other golden eagles were watching me in silence. It seemed they were waiting for me to see something I had not seen before.</p>
+<p>So I tried again. I lifted my eyes toward the sky and watched the sunlight. Then, following the light, I looked down toward the earth.</p>
+<p>And in that moment, I suddenly saw things I had never seen before.</p>
+<p>Above the fox's head hung a small cloud of darkness.</p>
+<p>Above the mother mouse was a small white cloud.</p>
+<p>The white cloud was soft and pure, like a tuft of cotton illuminated by the sun. But the cloud above the fox seemed dark and heavy, as though it concealed something hidden and evil.</p>
+<p>For the first time, I understood that the same world is not seen in the same way by every pair of eyes. Before that day, I had known only how to look with my eyes. Now, it seemed that I had begun to glimpse another world.</p>
+<p>The golden eagle looked at me. He knew that I had seen it. He did not explain. Instead, he asked,</p>
+<p>“What do you see?”</p>
+<p>I thought for a moment. “I see <strong>black clouds</strong> and <strong>white clouds</strong> above their heads. The one who is good has a white cloud.”</p>
+<p>The golden eagle nodded. “Good.”</p>
+<p>I looked at him. “What is good?”</p>
+<p>But he did not answer. He simply looked again at the mother mouse. “Some things cannot be seen with the eyes alone.”</p>
+<p>I did not fully understand. But I remembered his words.</p>
+<p>Just then, one of the golden eagles suddenly took flight. From high above, he plunged toward the earth and carried the fox away. The mother mouse immediately led her two little ones back into their hole.</p>
+<img class="chapter-illustration" src="../images/ch01/ch01_fig4.jpg" alt="Illustration for Chapter 1" loading="lazy">
+<p>After that day, I began to watch more carefully. I practiced what the golden eagle had called “seeing through the light.” I watched the sky, the sea, the wind, the trees, the animals—and people. Gradually, I began to notice something strange. Above some creatures, there seemed to be a small cloud of white. It was soft and pure, like cotton touched by sunlight. Above others, there seemed to gather a dark cloud, gray and heavy.</p>
+<p>Whenever I saw a white cloud or a dark one, I remembered the words of my teacher: “Learn to see through the light above.”</p>
+<p>Several days later, I could no longer keep my question to myself. “Teacher, will I always have this kind of vision?”</p>
+<p>He was silent for a while. Then he answered,</p>
+<p>“Not necessarily.”</p>
+<p>I was surprised. “Why?”</p>
+<p>He said, “Because eyes grow tired, and the heart can grow dull.”</p>
+<p>I became quiet.</p>
+<p>“If you depend only upon your own eyes, one day you will begin to see only the surface again.” He continued: “You must keep looking upward. See through the light.”</p>
+<p>I wanted to ask him more. But he said nothing further. He simply gazed into the distance. After a while, he spoke slowly.</p>
+<p>“Not every eagle will see the world in the same way.”</p>
+<p>I looked up at him. “Then why was I allowed to see?”</p>
+<p>He did not answer me directly. Instead, he said, “We were all fashioned by the hand of the Creator. He gives each eagle different wings, and He gives each eagle a different path.”</p>
+<p>I asked, “Then what am I supposed to do?”</p>
+<p>He looked toward the horizon. “When you truly understand what you have been given to see, you will know.”</p>
+<p>This time, I did not ask another question. I knew that some answers are not meant to be known until their appointed time.</p>
+<p>That evening, I flew higher than I had ever flown before. The sky was clearer than usual. The sun was sinking in the west. Golden light fell across the sea like a road stretching into the distance.</p>
+<p>I suddenly remembered the words of my teacher:</p>
+<p>“Learn to see the world through the light.”</p>
+<p>I gazed upon that light. And for the first time, I wondered if he had never really been teaching me how to catch fish at all. Perhaps he had been teaching me another way of seeing the world.</p>
+<p>A few days later, the golden eagles prepared to continue their migration south. My heart was filled with things I wanted to say to my teacher.</p>
+<p>I wanted to tell him what I had learned.</p>
+<p>I wanted to tell him that he had changed the way I saw.</p>
+<p>But in the end, I could not say any of it. I only wished that he would stay. Yet the golden eagles began to spread their wings, one after another. They flew south. I stood upon the cliff and watched them grow smaller and smaller. Their forms gradually faded into tiny dark specks. Then, even those specks disappeared beyond the distant horizon.</p>
+<p>My teacher was truly gone. The wind came sweeping in from the sea. I stood there for a long time without moving. And then I remembered everything he had left with me.</p>
+<p>Look upward.</p>
+<p>See the light.</p>
+<p>See the world through the light.</p>
+<p>I knew that I had been given eyes to see something I had never seen before. I gazed toward the place where the golden eagle had disappeared. For a long while, I said nothing. Then, facing the distant sky, I called out with all my strength:</p>
+<blockquote><strong>“Yes. I will remember.”</strong></blockquote>
+  </div>
+</div>
+
+<div class="quiz-cta">
+  <h3>🌟 Finished this chapter?</h3>
+  <p>Log in to the Reading Quest and answer three questions about "Spiritual Vision" to earn stars and points!</p>
+  <a class="btn" href="../quiz.html?ch=1">Take the Chapter 1 Quiz</a>
+</div>
+
+<div class="chapternav">
+  <a class="prev" href="../index.html"><div class="dir">&larr; Back</div><div class="lbl">Contents</div></a>
+  <a class="next" href="chapter-02.html"><div class="dir">Next &rarr;</div><div class="lbl">He Called My Name</div></a>
+</div>
+<footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
+</div>
+</body>
+</html>

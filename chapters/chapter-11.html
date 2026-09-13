@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walk With Him Two Miles — Chapter 11 of 12 — The Eyes of the Eagle</title>
+<meta name="description" content="An illustrated retelling of the life of Jesus, seen through the eyes of a bald eagle over Galilee — by Chris Kuo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-deep:#1B4B66; --sky-bright:#3E86A0; --sun-gold:#F2A93B;
+  --cloud:#F7F9FB; --ink:#1E2A32; --leaf-teal:#2E8B7E; --danger:#C25B4A;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:'Nunito',sans-serif;color:var(--ink);
+  background:linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-bright) 55%, #7FB8C9 100%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;}
+a{color:inherit;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;margin-bottom:18px;flex-wrap:wrap;gap:10px;
+}
+header.site a.brand{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;text-decoration:none;color:#fff;}
+header.site nav a{
+  color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+  background:rgba(10,30,40,.28);border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 16px;margin-left:8px;display:inline-block;
+}
+header.site nav a.quiz{background:var(--sun-gold);color:#4A2E00;border:none;}
+
+.panel{background:var(--cloud);border-radius:24px;padding:28px 26px 24px;box-shadow:0 10px 0 rgba(10,40,55,.28);}
+.panel + .panel{margin-top:18px;}
+.eyebrow{font-weight:800;color:var(--leaf-teal);font-size:.78rem;letter-spacing:.4px;margin:0 0 6px;}
+
+/* hero (landing page only) */
+.hero{text-align:center;color:#fff;padding:30px 10px 10px;}
+.hero .by{font-weight:700;opacity:.85;font-size:.9rem;}
+.hero h1{font-size:2.1rem;margin:6px 0 4px;}
+.hero h1 em{font-style:italic;}
+.hero .subtitle{font-size:1.2rem;font-weight:700;opacity:.95;margin:0 0 18px;}
+.hero p.lede{max-width:56ch;margin:0 auto 22px;line-height:1.7;font-weight:600;opacity:.95;}
+.hero .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px;}
+.toc-card{
+  display:block;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;
+  border:1px solid #E4EBEE;color:var(--ink);
+}
+.toc-card:hover{border-color:var(--sky-bright);}
+.toc-card .n{font-family:'Baloo 2';color:var(--sky-deep);font-weight:700;font-size:.85rem;}
+.toc-card .t{font-weight:800;margin-top:2px;}
+
+button, a.btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:999px;padding:12px 26px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 4px 0 #C9852A;
+  text-decoration:none;display:inline-block;
+}
+a.btn.secondary{background:transparent;color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.7);}
+
+/* chapter reading page */
+.chapter-text{font-size:1.08rem;line-height:1.75;}
+.chapter-text p{margin:0 0 14px;}
+.chapter-text p:last-child{margin-bottom:0;}
+.chapter-text img.chapter-illustration{width:100%;height:auto;border-radius:12px;margin:16px 0;border:1px solid #E4EBEE;display:block;}
+.chapter-text hr.scene-break{border:none;text-align:center;margin:22px 0;height:1.2em;color:var(--sky-bright);font-size:1.1rem;letter-spacing:10px;}
+.chapter-text hr.scene-break::before{content:"\2022 \2022 \2022";}
+.chapter-text blockquote{margin:16px 8px;padding:12px 18px;border-left:4px solid var(--sun-gold);background:#FCF6E8;border-radius:0 10px 10px 0;font-style:italic;font-weight:700;color:#5C4419;}
+
+.chapternav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.chapternav a{
+  flex:1;min-width:140px;text-decoration:none;background:#fff;border:1px solid #E4EBEE;
+  border-radius:14px;padding:12px 16px;color:var(--ink);
+}
+.chapternav a:hover{border-color:var(--sky-bright);}
+.chapternav .dir{font-size:.75rem;font-weight:800;color:var(--leaf-teal);}
+.chapternav .lbl{font-weight:800;}
+.chapternav a.next{text-align:right;}
+
+.quiz-cta{
+  margin-top:20px;background:linear-gradient(180deg,#FFF6E4,#FCEFD6);
+  border:2px solid var(--sun-gold);border-radius:18px;padding:20px 22px;text-align:center;
+}
+.quiz-cta h3{margin:0 0 6px;color:#7A4A0A;}
+.quiz-cta p{margin:0 0 14px;font-weight:700;color:#8A5B18;}
+
+footer.note{text-align:center;color:#E7F1F5;font-size:.78rem;margin-top:26px;line-height:1.6;}
+footer.note a{color:#fff;font-weight:700;}
+
+@media (max-width:480px){
+  header.site{flex-direction:column;align-items:flex-start;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="../index.html">🦅 The Eyes of the Eagle</a>
+  <nav>
+    <a href="../index.html">Read the Book</a>
+    <a class="quiz" href="../quiz.html">🎮 Reading Quest Game</a>
+  </nav>
+</header>
+
+<div class="panel">
+  <p class="eyebrow">CHAPTER 11 OF 12</p>
+  <h1 style="margin:0 0 16px;color:var(--sky-deep);">Walk With Him Two Miles</h1>
+  <div class="chapter-text">
+    <img class="chapter-illustration" src="../images/ch11/ch11_fig1.jpg" alt="Illustration for Chapter 11" loading="lazy">
+<p>Centurion had served in the Roman army for twenty years. According to military custom, he could have served for several more years before retiring. When he retired, he would have received a pension, or perhaps a piece of land. It had once seemed like a safe and orderly path through life.</p>
+<p>But none of those things mattered to him anymore. He had become an ordinary man. He often thought about his old comrades, especially the friends with whom he had once laughed and complained.</p>
+<p>Now he had something far more important to tell them.</p>
+<p>He met one of his former soldiers, a man named Titus. Titus was astonished that Centurion had deserted—and even more astonished to see him back again. He desperately wanted to know what had happened.</p>
+<p>Titus was carrying a large wooden crate of supplies. He was standing beside a Roman milestone, about to force a non-Roman citizen to carry his load. Under Roman rule, soldiers could compel local people to carry military supplies and baggage for them.</p>
+<p>Centurion looked at the man and felt a sudden pang of pity. He said to Titus,</p>
+<p>“Let me carry it for you.”</p>
+<p>He reached out and took the load, hoping to have a chance to speak with Titus alone. But Titus refused.</p>
+<p>“No. You don't have to carry it.”</p>
+<p>Titus insisted on carrying it himself. And so the two men continued together along the Roman road.</p>
+<p>After a while, Titus could no longer hold back his question.</p>
+<p>“You ran away when Peter was preaching in the city square. Where did you go?”</p>
+<p>“I found Him,” Centurion answered.</p>
+<p>Titus stared at him. For a moment, he thought Centurion had discovered some kind of treasure in the forest.</p>
+<p>Centurion smiled and continued.</p>
+<p>“Do you remember what that Jew Peter said?”</p>
+<p>“Jesus, the One who was crucified, has risen from the dead.”</p>
+<p>“It is true.”</p>
+<p>Titus was silent for a while.</p>
+<p>He had heard Jesus teach, too. Even after Jesus was crucified, Titus had heard many stories about Him from other people. Most of those stories had come from the very people he had forced to carry heavy loads for a mile. They were followers of Jesus—mostly Jewish men and women, and even boys and girls.</p>
+<p>They were different from other people.</p>
+<p>They did not complain about being forced to carry heavy burdens. Some of them were even willing to walk an extra mile, simply so they could tell Titus more about Jesus. They spoke with courtesy and dignity. Strangest of all, everything they told him seemed to be true.</p>
+<p>Titus had noticed that even the Jews who opposed Jesus could not completely deny what had happened. And before leaving, those followers who had walked with him two miles always asked him the same question:</p>
+<p>“Do you believe?”</p>
+<p>Now even his closest friend, Centurion, was telling him the same thing.</p>
+<p>And the change in Centurion was real. Titus looked at his face. There was a light in him that had not been there before. He no longer looked like the tired and discouraged soldier Titus had once known.</p>
+<p>“But what does the death and resurrection of Jesus have to do with us?” Titus asked.</p>
+<p>They continued walking.</p>
+<p>Titus was not the kind of man who picked up a book and read it carefully from beginning to end. He read here and there, when he felt like it.</p>
+<p>He laughed.</p>
+<p>“My simple mind cannot possibly fit love, sin and punishment, military affairs, physics, and Aristotle all into one thought.”</p>
+<p>Centurion laughed with him. Titus continued,</p>
+<p>“And I don't want to speak carelessly about Jesus.”</p>
+<p>“There is no king but Caesar.” He was silent for a moment.</p>
+<p>Then he said,</p>
+<p>“But there is something I have never been able to understand.”</p>
+<p>“If there really is a God who created heaven and earth, why does He watch human beings kill one another and destroy one another?”</p>
+<p>Centurion looked down the long road ahead.</p>
+<p>After a while, he said,</p>
+<p>“Animals are born, and animals die. That is their nature.”</p>
+<p>“Human beings are born, and human beings die. That is our nature, too.”</p>
+<p>Titus nodded.</p>
+<p>“I cannot disagree with that.”</p>
+<p>Centurion continued.</p>
+<p>“Great kings conquer other nations, and in the end, they die, too.”</p>
+<p>“No one is immortal.”</p>
+<p>Then Centurion asked,</p>
+<p>“But why do human beings kill one another?”</p>
+<p>Titus said nothing. Centurion continued.</p>
+<p>“Because there is selfishness in the human heart. And there is evil.”</p>
+<p>“Not everyone is evil,” Titus quickly replied. “There is goodness in people, too.”</p>
+<p>Centurion nodded.“I know.”</p>
+<p>“But can you guarantee that a person's goodness will never change?”</p>
+<p>Titus did not answer. Centurion continued.</p>
+<p>“A man may be good today. He may be good tomorrow.”</p>
+<p>“But what if he is given enough temptation?”</p>
+<p>“What if he is given enough money?”</p>
+<p>“What if he is given enough power?”</p>
+<p>Titus fell silent. He knew Centurion was speaking the truth. Human goodness can be real. But human goodness is not perfect. Fear can change it. Greed can change it. Power can change it. And it can never remain perfect forever.</p>
+<p>Centurion remembered something Jesus had once said:</p>
+<p>”Be perfect, therefore, as your heavenly Father is perfect.”</p>
+<p>He spoke slowly.</p>
+<p>“When Jesus said ‘perfect,' He was not talking about being a good person for a day or two.”</p>
+<p>He said ‘perfect.'</p>
+<p>Titus looked down at the Roman road beneath his feet. They walked for a while. Then Titus suddenly said,</p>
+<p>“I remember when I was studying, one of my teachers spoke about Socrates.”</p>
+<p>“We talked about the human soul. We talked about what kind of person could truly be called holy.”</p>
+<p>“He lifted his head and looked at Centurion.”</p>
+<p>“But what if there is no one who can remain righteous forever?”</p>
+<p>Centurion stopped walking.</p>
+<p>He looked at Titus. “You are right.”</p>
+<p>“There is no one in this world who can remain righteous forever.”</p>
+<p>“There was no one in the past.”</p>
+<p>“There is no one now.”</p>
+<p>“And there will be no one in the future.”</p>
+<p>He paused. Then he said,</p>
+<p>“Except One.”</p>
+<p>Titus looked at him. Centurion spoke quietly.</p>
+<p>“Jesus. He is the Son of God.”</p>
+<p>Titus said nothing. Centurion continued.</p>
+<p>“We nailed Him to a cross.”</p>
+<p>“And now I understand.”</p>
+<p>That was not an accident. “It was not merely a tragedy.”</p>
+<p>“The Father knew from the beginning that humanity would nail His Son to the cross.”</p>
+<p>“And yet the Father still loved the world.”</p>
+<p>“He even gave His only Son, Jesus, to take away the sins of the world.”</p>
+<p>Titus walked slowly. He said nothing. Centurion did not hurry him. After a while, Centurion asked,</p>
+<p>“Do you know what I saw beneath the cross?”</p>
+<p>Titus shook his head.</p>
+<p>“I saw an innocent Man suffer for the guilty.”</p>
+<p>“I saw a Man who did not need to die, die for us.”</p>
+<p>“I once thought that was defeat.”</p>
+<p>“Now I know it was redemption.”</p>
+<p>Titus slowly raised his head.</p>
+<p>“But why did He have to die?”</p>
+<p>Centurion answered,</p>
+<p>“Because sin brings death.”</p>
+<p>“We have sinned ourselves. How could we possibly remove our own sin by ourselves?”</p>
+<p>“A guilty person cannot even bear the weight of his own sin. How could he bear the judgment for someone else?”</p>
+<p>Titus did not answer.</p>
+<p>Centurion said,</p>
+<p>“But God can.”</p>
+<p>“He gave His Son to us.”</p>
+<p>“Jesus is not merely my Teacher.”</p>
+<p>“He is the Son of God.”</p>
+<p>“Only the sinless Son of God could bear such a burden.”</p>
+<p>“This is the greatest gift God has ever given to humanity.”</p>
+<p>“He is changing the destiny of the human race.”</p>
+<p>The two men continued along the road. Other followers of Jesus, also carrying burdens they had been forced to carry, were talking about what they had seen—the risen Christ. Titus listened to their voices. After a while, he said,</p>
+<p>“Death is the devil's strongest weapon against humanity.”</p>
+<p>Centurion looked at him. Titus continued.</p>
+<p>“The devil can tempt human desires.”</p>
+<p>“He can make people lust, become greedy, steal, and commit evil.”</p>
+<p>“People break God's law, and in the end they must face death.”</p>
+<p>“Then the devil uses their sin and death to accuse them and hold them captive.”</p>
+<p>“Isn't that terrible?”</p>
+<p>“That is why the salvation the Father has given to the world is an incomparable gift,” Centurion answered.</p>
+<p>Titus remembered something he had once heard someone say:</p>
+<p>“He will swallow up death forever and wipe away the tears from every face.”</p>
+<p>His voice grew quieter.</p>
+<p>“Redemption is the road by which a person leaves sin and death and enters the kingdom of God.”</p>
+<p>“Just as Peter said: ‘Repent. Leave this crooked generation behind.' ”</p>
+<p>Titus was silent for a long time. He did not argue anymore. He was beginning to understand. The real question was not whether there were good people in the world. The real question was whether anyone could become perfectly holy by relying on his own goodness.</p>
+<p>It was precisely because the holy Father exists that human sin revealed its true horror.</p>
+<p>“Then what about grace?” Titus suddenly asked.</p>
+<p>“If sin is so great, is grace greater still?”</p>
+<p>“Yes,” Centurion said with a smile.</p>
+<p>He thought for a moment. Then he said,</p>
+<p>“I used to think too little of sin and too much of myself.”</p>
+<p>“Now I understand.”</p>
+<p>“Where sin abounds, grace abounds even more.”</p>
+<p>“Sin is like a small jar of dirty water.”</p>
+<p>“But grace is like a vast cistern of clear water.”</p>
+<p>“No matter how much dirty water there is, it cannot turn the whole cistern into dirty water.”</p>
+<p>“Because the clear water keeps flowing in.”</p>
+<p>Titus lowered his head and thought.</p>
+<p>“That would require a great deal of water. A very great deal.”</p>
+<p>Centurion nodded. “Exactly.”</p>
+<p>Then he continued, “If someone refuses such a great salvation and stands naked before the judgment seat, how miserable will he be?”</p>
+<p>“He will have nothing with which to cover his nakedness.”</p>
+<p>“In the end, he will have to face everlasting death.”</p>
+<p>Titus stopped walking. He looked at Centurion.</p>
+<p>“Can you teach me how to pray?”</p>
+<p>Centurion looked into his eyes. He saw the questions in Titus's heart slowly becoming trust. The two men stopped beside the Roman road. Centurion led Titus in praying the Lord's Prayer.</p>
+<p>The other followers of Jesus, who were being forced to carry heavy burdens along the road, saw Titus turn to the Lord, and they rejoiced.</p>
+<p>Titus's decision was courageous. Centurion's decision to walk two miles with him was courageous, too. And I watched all of this from high above.</p>
+<p>I saw the broad Roman road filled with Christians who were willing to walk an extra mile. They cared about the salvation of other people's souls. They were doing what my Master had taught them:</p>
+<blockquote>“If anyone forces you to go one mile,<br>
+go with them two miles.”</blockquote>
+<p>Suddenly, I understood. The glory of my Lord Jesus was not revealed only on the morning when He rose from the dead. It was also shining on this Roman road.</p>
+<p>When someone is willing to walk an extra mile, when someone is willing to lay down his rights, when someone is willing to stop for the sake of another person's soul, that, too, is the glory of my Lord Jesus.</p>
+  </div>
+</div>
+
+<div class="quiz-cta">
+  <h3>🌟 Finished this chapter?</h3>
+  <p>Log in to the Reading Quest and answer three questions about "Walk With Him Two Miles" to earn stars and points!</p>
+  <a class="btn" href="../quiz.html?ch=11">Take the Chapter 11 Quiz</a>
+</div>
+
+<div class="chapternav">
+  <a class="prev" href="chapter-10.html"><div class="dir">&larr; Previous</div><div class="lbl">Stephen Is Stoned to Death</div></a>
+  <a class="next" href="chapter-12.html"><div class="dir">Next &rarr;</div><div class="lbl">The Throne in Heaven</div></a>
+</div>
+<footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
+</div>
+</body>
+</html>
