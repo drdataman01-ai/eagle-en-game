@@ -125,7 +125,7 @@ function renderTable(sortKey){
       </div>
       <div class="scroll">
         <table>
-          <thead><tr><th>Name</th><th class="num">🏆 Score</th>${chHeaders}</tr></thead>
+          <thead><tr><th>Name</th><th class="num">⭐ Stars</th>${chHeaders}</tr></thead>
           <tbody>${bodyRows || `<tr><td colspan="${2+CHAPTER_COUNT}">No readers yet.</td></tr>`}</tbody>
         </table>
       </div>
@@ -142,7 +142,7 @@ function escapeHtml(s){
 }
 
 function exportCsv(){
-  let header = ['Name','Total Score'];
+  let header = ['Name','Total Stars'];
   for(let i=1;i<=CHAPTER_COUNT;i++) header.push(`Chapter ${i} Done`);
   const lines = [header.join(',')];
   allRows.forEach(r => {
