@@ -1,3 +1,6 @@
+/* ============================================================
+   FIREBASE CONFIG
+   ============================================================ */
 const firebaseConfig = {
   apiKey: "AIzaSyAFwnIMs8JDNX6JnoH25CIB_uzKxwRNN_w",
   authDomain: "eagle-en-game.firebaseapp.com",
@@ -8,8 +11,9 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
 const db = firebase.firestore();
 
-const AUTH_EMAIL_DOMAIN = "eagle-quest.local";
-const TEACHER_EMAIL = "teacher@eagle-quest-admin.local";
+/* Change this to your own passcode before publishing the site.
+   It gates the teacher dashboard (teacher.html). This is a light
+   deterrent, not real security -- see README.md for details. */
+const TEACHER_PASSCODE = "eagle2026";

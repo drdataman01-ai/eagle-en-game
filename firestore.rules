@@ -2,17 +2,24 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Each student's score document lives at /scores/{their auth uid}.
-    // A student can read and write ONLY their own document — they
-    // cannot see anyone else's score. The one exception is the fixed
-    // teacher account (see TEACHER_EMAIL in firebase-config.js), which
-    // can read every document so teacher.html can show the whole class.
-    // Nobody except that exact account can read someone else's score.
-    match /scores/{userId} {
-      allow read: if request.auth != null &&
-                     (request.auth.uid == userId ||
-                      request.auth.token.email == "teacher@eagle-quest-admin.local");
-      allow write: if request.auth != null && request.auth.uid == userId;
+    // IMPORTANT SECURITY NOTE:
+    // This site normally uses Firebase Authentication so that a
+    // student's score document can only be read/written by that
+    // student (or the teacher). Because Firebase Auth was blocked
+    // in this project (the "API key not valid" / Identity Toolkit
+    // issue), quiz.html and teacher.html instead talk to Firestore
+    // directly with no authentication at all -- which only works if
+    // these rules allow open access.
+    //
+    // That means: with these rules, anyone who knows (or guesses) a
+    // reading name could read or overwrite that student's score by
+    // calling Firestore directly, bypassing the website entirely.
+    // For a small, low-stakes classroom reading game (nicknames and
+    // quiz scores, nothing sensitive) this is a reasonable trade-off
+    // to get things working. It is not appropriate for anything
+    // where the data matters more than that.
+    match /scores/{studentId} {
+      allow read, write: if true;
     }
   }
 }

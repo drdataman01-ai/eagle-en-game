@@ -96,7 +96,6 @@
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
 
@@ -209,43 +208,58 @@ async function handleLogin(){
     return;
   }
 
-  const email = `${slug}@${AUTH_EMAIL_DOMAIN}`;
   renderLoading('Logging in…');
 
   try {
-    await auth.createUserWithEmailAndPassword(email, pin);
-    await auth.currentUser.updateProfile({ displayName: nameRaw.trim() });
-    await db.collection('scores').doc(auth.currentUser.uid).set({
-      name: nameRaw.trim(),
-      totalPoints: 0,
-      chapters: {},
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-  } catch (err) {
-    if(err.code === 'auth/email-already-in-use'){
-      try {
-        await auth.signInWithEmailAndPassword(email, pin);
-      } catch (err2) {
+    const docRef = db.collection('scores').doc(slug);
+    const docSnap = await docRef.get();
+
+    if(docSnap.exists){
+      const data = docSnap.data();
+      if(data.pin !== pin){
         renderLogin('That reading name is taken with a different code. Try another name, or double-check your code.', nameRaw, '');
         return;
       }
-    } else if (err.code === 'auth/weak-password') {
-      renderLogin('Please choose a 6-digit code.', nameRaw, '');
-      return;
     } else {
-      renderLogin('Something went wrong logging in. Please try again.', nameRaw, pinRaw);
-      return;
+      await docRef.set({
+        name: nameRaw.trim(),
+        pin: pin,
+        totalPoints: 0,
+        chapters: {},
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
     }
+
+    localStorage.setItem('eagleReaderSlug', slug);
+    localStorage.setItem('eagleReaderName', nameRaw.trim());
+    currentUser = { uid: slug };
+    currentUserDisplayName = nameRaw.trim();
+    state = await loadStateFromFirestore(slug);
+    checkDeepLinkAndRender();
+  } catch (err) {
+    console.error(err);
+    renderLogin('Something went wrong logging in. Please try again.', nameRaw, pinRaw);
   }
 }
 
-function handleLogout(){ auth.signOut(); }
+function handleLogout(){
+  localStorage.removeItem('eagleReaderSlug');
+  localStorage.removeItem('eagleReaderName');
+  currentUser = null;
+  state = null;
+  renderLogin();
+}
 
 /* ============================================================
    FIRESTORE SYNC
+   (No Firebase Authentication is used — each reader's document is
+   keyed directly by their slugified reading name, and the 6-digit
+   code is checked against the stored value at login time. This
+   keeps the whole game working even when Firebase Auth itself is
+   unavailable. See firestore.rules for the security trade-off.)
    ============================================================ */
-async function loadStateFromFirestore(uid){
-  const docSnap = await db.collection('scores').doc(uid).get();
+async function loadStateFromFirestore(slug){
+  const docSnap = await db.collection('scores').doc(slug).get();
   const s = emptyState();
   if(docSnap.exists){
     const data = docSnap.data();
@@ -423,30 +437,43 @@ function renderChapterSummary(){
 }
 
 /* ============================================================
-   AUTH STATE
+   SESSION START
+   (No Firebase Auth session to listen for — instead, check
+   localStorage for a previously logged-in reader and restore
+   them automatically; otherwise show the login form.)
    ============================================================ */
 document.getElementById('logoutBtn').addEventListener('click', handleLogout);
 
-auth.onAuthStateChanged(async (user) => {
-  if(user){
-    currentUser = user;
-    currentUserDisplayName = user.displayName || 'Reader';
-    renderLoading('Loading your progress…');
-    state = await loadStateFromFirestore(user.uid);
+function checkDeepLinkAndRender(){
+  const params = new URLSearchParams(window.location.search);
+  const chParam = parseInt(params.get('ch'));
+  if(chParam && getChapter(chParam)){
+    openChapterQuiz(chParam);
+  } else {
+    renderChapterPicker();
+  }
+}
 
-    const params = new URLSearchParams(window.location.search);
-    const chParam = parseInt(params.get('ch'));
-    if(chParam && getChapter(chParam)){
-      openChapterQuiz(chParam);
-    } else {
-      renderChapterPicker();
+async function init(){
+  const savedSlug = localStorage.getItem('eagleReaderSlug');
+  const savedName = localStorage.getItem('eagleReaderName');
+  if(savedSlug && savedName){
+    currentUser = { uid: savedSlug };
+    currentUserDisplayName = savedName;
+    renderLoading('Loading your progress…');
+    try {
+      state = await loadStateFromFirestore(savedSlug);
+      checkDeepLinkAndRender();
+    } catch (e) {
+      console.error(e);
+      renderLogin('Could not load your progress. Please log in again.', savedName, '');
     }
   } else {
-    currentUser = null;
-    state = null;
     renderLogin();
   }
-});
+}
+
+init();
 </script>
 </body>
 </html>

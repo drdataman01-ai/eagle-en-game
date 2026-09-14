@@ -44,7 +44,6 @@
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
 <script>
@@ -62,7 +61,7 @@ function renderPasscodeGate(errorMsg){
       </div>
       <button id="enterBtn">View class scores</button>
       <div class="error">${errorMsg || ''}</div>
-      <p class="setup-note">The first time anyone uses this passcode, it creates the teacher account. After that, the same passcode logs back in. Set/change it in <code>firebase-config.js</code> — see README.md.</p>
+      <p class="setup-note">Set/change the passcode in <code>firebase-config.js</code> (TEACHER_PASSCODE) — see README.md.</p>
     </div>`;
   document.getElementById('enterBtn').addEventListener('click', checkPasscode);
   document.getElementById('passInput').addEventListener('keydown', e => { if(e.key==='Enter') checkPasscode(); });
@@ -70,28 +69,16 @@ function renderPasscodeGate(errorMsg){
 
 async function checkPasscode(){
   const val = document.getElementById('passInput').value;
-  if(val.length < 6){
-    renderPasscodeGate('Passcode must be at least 6 characters.');
+  if(val !== TEACHER_PASSCODE){
+    renderPasscodeGate('Incorrect passcode.');
     return;
   }
   app.innerHTML = `<div class="loading">Logging in…</div>`;
   try {
-    try {
-      await auth.signInWithEmailAndPassword(TEACHER_EMAIL, val);
-    } catch (err) {
-      if(err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential' || err.code === 'auth/invalid-login-credentials'){
-        await auth.createUserWithEmailAndPassword(TEACHER_EMAIL, val);
-      } else if (err.code === 'auth/wrong-password') {
-        renderPasscodeGate('Incorrect passcode.');
-        return;
-      } else {
-        throw err;
-      }
-    }
     await loadDashboard();
   } catch (e) {
     console.error(e);
-    renderPasscodeGate('Could not log in. Check the Firebase setup in firebase-config.js and Firestore rules.');
+    renderPasscodeGate('Could not load scores. Check the Firebase setup in firebase-config.js and Firestore rules.');
   }
 }
 
@@ -147,7 +134,7 @@ function renderTable(sortKey){
   document.getElementById('sortName').addEventListener('click', () => renderTable('name'));
   document.getElementById('sortPoints').addEventListener('click', () => renderTable('points'));
   document.getElementById('exportCsv').addEventListener('click', exportCsv);
-  document.getElementById('logoutBtn').addEventListener('click', () => { auth.signOut(); renderPasscodeGate(); });
+  document.getElementById('logoutBtn').addEventListener('click', () => { renderPasscodeGate(); });
 }
 
 function escapeHtml(s){
