@@ -96,6 +96,30 @@ footer.note a{color:#fff;font-weight:700;}
   header.site{flex-direction:column;align-items:flex-start;}
   .panel{padding:20px 16px;}
 }
+
+.read-aloud{
+  background:#fff;border:1px solid #E4EBEE;border-radius:14px;
+  padding:12px 16px;margin:0 0 18px;display:flex;align-items:center;
+  gap:10px;flex-wrap:wrap;
+}
+.read-aloud .ra-btn{
+  font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.85rem;
+  border:none;border-radius:999px;padding:8px 16px;cursor:pointer;
+  background:var(--sun-gold);color:#4A2E00;box-shadow:0 3px 0 #C9852A;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.read-aloud .ra-btn:hover{transform:translateY(-1px);}
+.read-aloud .ra-btn:active{transform:translateY(1px);box-shadow:0 1px 0 #C9852A;}
+.read-aloud .ra-btn.secondary{background:transparent;color:var(--sky-deep);box-shadow:none;border:2px solid #DCE5E9;}
+.read-aloud .ra-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+.read-aloud select{
+  font-family:'Nunito';font-size:.82rem;font-weight:600;color:var(--ink);
+  border:2px solid #DCE5E9;border-radius:10px;padding:6px 8px;max-width:180px;
+}
+.read-aloud .ra-speed{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:var(--sky-deep);}
+.read-aloud .ra-speed input{accent-color:var(--sun-gold);}
+.read-aloud .ra-status{font-size:.78rem;color:#6C808A;font-weight:700;margin-left:auto;}
+.read-aloud .ra-unsupported{font-size:.85rem;color:#6C808A;font-weight:600;}
 </style>
 </head>
 <body>
@@ -111,6 +135,16 @@ footer.note a{color:#fff;font-weight:700;}
 <div class="panel">
   <p class="eyebrow">CHAPTER 02 OF 12</p>
   <h1 style="margin:0 0 16px;color:var(--sky-deep);">He Called My Name</h1>
+  <div class="read-aloud" id="readAloud">
+    <button class="ra-btn" id="raPlay">▶️ Read aloud</button>
+    <button class="ra-btn secondary" id="raPause" disabled>⏸️ Pause</button>
+    <button class="ra-btn secondary" id="raStop" disabled>⏹️ Stop</button>
+    <select id="raVoice" title="Choose a voice"></select>
+    <label class="ra-speed">Speed
+      <input type="range" id="raSpeed" min="0.6" max="1.2" step="0.1" value="0.9">
+    </label>
+    <span class="ra-status" id="raStatus"></span>
+  </div>
   <div class="chapter-text">
     <img class="chapter-illustration" src="../images/ch02/ch02_fig1.jpg" alt="Illustration for Chapter 2" loading="lazy">
 <p>Ever since the golden eagle had taught me how to see, I had grown even more eager to look upon the world through the light. I was no longer satisfied with watching only the sky, the sea, the forests, and the valleys. I began to pay attention to every living thing. Especially human beings.</p>
@@ -190,5 +224,85 @@ footer.note a{color:#fff;font-weight:700;}
 </div>
 <footer class="note">The Eyes of the Eagle: See the Glory · by Chris Kuo</footer>
 </div>
+<script>
+(function(){
+  var btnPlay = document.getElementById('raPlay');
+  var btnPause = document.getElementById('raPause');
+  var btnStop = document.getElementById('raStop');
+  var voiceSelect = document.getElementById('raVoice');
+  var speedInput = document.getElementById('raSpeed');
+  var status = document.getElementById('raStatus');
+  var bar = document.getElementById('readAloud');
+
+  if(!('speechSynthesis' in window)){
+    bar.innerHTML = '<span class="ra-unsupported">Read-aloud isn\'t supported in this browser. Try Chrome, Safari, or Edge.</span>';
+    return;
+  }
+
+  var textEl = document.querySelector('.chapter-text');
+  var chapterText = textEl.innerText || textEl.textContent;
+  var utterance = null;
+  var voices = [];
+
+  function populateVoices(){
+    voices = window.speechSynthesis.getVoices().filter(function(v){ return v.lang.indexOf('en') === 0; });
+    if(voices.length === 0) voices = window.speechSynthesis.getVoices();
+    voiceSelect.innerHTML = '';
+    voices.forEach(function(v, i){
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = v.name + (v.lang ? ' (' + v.lang + ')' : '');
+      voiceSelect.appendChild(opt);
+    });
+    var preferredIdx = voices.findIndex(function(v){
+      return /Samantha|Google US English|Microsoft Aria|Natural/i.test(v.name);
+    });
+    if(preferredIdx >= 0) voiceSelect.value = preferredIdx;
+  }
+  populateVoices();
+  if(window.speechSynthesis.onvoiceschanged !== undefined){
+    window.speechSynthesis.onvoiceschanged = populateVoices;
+  }
+
+  function setPlayingUI(playing, paused){
+    btnPlay.disabled = playing && !paused;
+    btnPause.disabled = !playing;
+    btnStop.disabled = !playing;
+    btnPause.textContent = paused ? '▶️ Resume' : '⏸️ Pause';
+    status.textContent = playing ? (paused ? 'Paused' : 'Reading…') : '';
+  }
+
+  btnPlay.addEventListener('click', function(){
+    window.speechSynthesis.cancel();
+    utterance = new SpeechSynthesisUtterance(chapterText);
+    var idx = parseInt(voiceSelect.value, 10);
+    if(voices[idx]) utterance.voice = voices[idx];
+    utterance.rate = parseFloat(speedInput.value);
+    utterance.onend = function(){ setPlayingUI(false, false); };
+    utterance.onerror = function(){ setPlayingUI(false, false); };
+    window.speechSynthesis.speak(utterance);
+    setPlayingUI(true, false);
+  });
+
+  btnPause.addEventListener('click', function(){
+    if(window.speechSynthesis.paused){
+      window.speechSynthesis.resume();
+      setPlayingUI(true, false);
+    } else {
+      window.speechSynthesis.pause();
+      setPlayingUI(true, true);
+    }
+  });
+
+  btnStop.addEventListener('click', function(){
+    window.speechSynthesis.cancel();
+    setPlayingUI(false, false);
+  });
+
+  window.addEventListener('beforeunload', function(){
+    window.speechSynthesis.cancel();
+  });
+})();
+</script>
 </body>
 </html>
